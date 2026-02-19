@@ -73,6 +73,7 @@ Table pedidos {
   fecha date
   estado varchar
 }
+>
 
 Ref: clientes.id_usuario > usuarios.id_usuario
 Ref: empleados.id_usuario > usuarios.id_usuario
@@ -83,5 +84,5 @@ Ref: ventas.id_cliente > clientes.id_cliente
 Ref: ventas.id_empleado > empleados.id_empleado
 Ref: detalle_venta.id_venta > ventas.id_venta
 Ref: detalle_venta.id_producto > productos.id_producto
-Ref: pedidos.id_cliente > clientes.id_cliente>
+Ref: pedidos.id_cliente > clientes.id_cliente
 \\\
