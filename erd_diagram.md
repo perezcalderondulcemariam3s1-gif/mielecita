@@ -1,65 +1,17 @@
 erDiagram
-    USERS ||--o| CUSTOMERS : "is"
-    USERS ||--o| EMPLOYEES : "is"
-    CATEGORIES ||--o{ PRODUCTS : "contains"
-    PRODUCTS ||--o{ SALES_DETAILS : "ordered_in"
-    SALES ||--o{ SALES_DETAILS : "has"
-    CUSTOMERS ||--o{ SALES : "buys"
-    EMPLOYEES ||--o{ SALES : "processes"
-    PRODUCTS ||--o{ INVENTORY : "tracked_in"
-    SUPPLIERS ||--o{ INGREDIENTS_PURCHASE : "supplies"
-    CUSTOMERS ||--o{ ORDERS : "places"
-
-    USERS {
-        int user_id PK
-        string name
-        string email
-        string password
-        string role
-    }
-
+    CUSTOMERS ||--o{ ORDERS : place
+    CAKES ||--o{ ORDERS : contains
+    
     CUSTOMERS {
-        int customer_id PK
-        int user_id FK
-        string phone
-        string address
+        int customer_id
+        string first_name
+        string phone_number
+    }
+    CAKES {
+        int cake_id
+        string cake_name
+        float price
     }
 
-    EMPLOYEES {
-        int employee_id PK
-        int user_id FK
-        string job_title
-    }
-
-    PRODUCTS {
-        int product_id PK
-        string name
-        decimal price
-        int category_id FK
-    }
-
-    SALES {
-        int sale_id PK
-        int customer_id FK
-        int employee_id FK
-        datetime sale_date
-        decimal total
-    }
-
-    SALES_DETAILS {
-        int detail_id PK
-        int sale_id FK
-        int product_id FK
-        int quantity
-    }
-
-    INVENTORY {
-        int inventory_id PK
-        int product_id FK
-        int stock
-    }
-
-    CATEGORIES {
-        int category_id PK
         string name
     }
