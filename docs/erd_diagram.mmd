@@ -16,6 +16,7 @@ erDiagram
         string email
         string password
         string role
+        datetime created_at
     }
 
     CUSTOMERS {
@@ -29,13 +30,17 @@ erDiagram
         int employee_id PK
         int user_id FK
         string job_title
+        decimal salary
+        date hire_date
     }
 
     PRODUCTS {
         int product_id PK
         string name
+        string description
         decimal price
         int category_id FK
+        boolean is_active
     }
 
     SALES {
@@ -44,6 +49,7 @@ erDiagram
         int employee_id FK
         datetime sale_date
         decimal total
+        string payment_method
     }
 
     SALES_DETAILS {
@@ -51,16 +57,37 @@ erDiagram
         int sale_id FK
         int product_id FK
         int quantity
+        decimal unit_price
+        decimal subtotal
     }
 
     INVENTORY {
         int inventory_id PK
         int product_id FK
         int stock
+        int min_stock
+        datetime last_update
     }
 
     CATEGORIES {
         int category_id PK
         string name
+        string description
     }
 
+    SUPPLIERS {
+        int supplier_id PK
+        string company_name
+        string contact_name
+        string phone
+        string email
+    }
+
+    INGREDIENTS_PURCHASE {
+        int purchase_id PK
+        int supplier_id FK
+        string ingredient_name
+        int quantity
+        decimal cost
+        datetime purchase_date
+    }
