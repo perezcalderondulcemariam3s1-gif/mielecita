@@ -9,6 +9,7 @@ erDiagram
     PRODUCTS ||--o{ INVENTORY : "tracked_in"
     SUPPLIERS ||--o{ INGREDIENTS_PURCHASE : "supplies"
     CUSTOMERS ||--o{ ORDERS : "places"
+    ORDERS ||--o{ ORDER_DETAILS : "includes"
 
     USERS {
         int user_id PK
@@ -16,7 +17,6 @@ erDiagram
         string email
         string password
         string role
-        datetime created_at
     }
 
     CUSTOMERS {
@@ -31,16 +31,29 @@ erDiagram
         int user_id FK
         string job_title
         decimal salary
-        date hire_date
+    }
+
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        datetime order_date
+        string status
+        decimal total_estimated
+    }
+
+    ORDER_DETAILS {
+        int order_detail_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
     }
 
     PRODUCTS {
         int product_id PK
         string name
-        string description
         decimal price
         int category_id FK
-        boolean is_active
+        string unit_measure
     }
 
     SALES {
@@ -49,7 +62,7 @@ erDiagram
         int employee_id FK
         datetime sale_date
         decimal total
-        string payment_method
+        string payment_type
     }
 
     SALES_DETAILS {
@@ -58,7 +71,6 @@ erDiagram
         int product_id FK
         int quantity
         decimal unit_price
-        decimal subtotal
     }
 
     INVENTORY {
@@ -66,28 +78,27 @@ erDiagram
         int product_id FK
         int stock
         int min_stock
-        datetime last_update
     }
 
     CATEGORIES {
         int category_id PK
         string name
-        string description
     }
 
     SUPPLIERS {
         int supplier_id PK
-        string company_name
-        string contact_name
-        string phone
+        string name
+        string contact_phone
         string email
+        string address
     }
 
     INGREDIENTS_PURCHASE {
         int purchase_id PK
         int supplier_id FK
         string ingredient_name
-        int quantity
         decimal cost
+        int quantity
         datetime purchase_date
     }
+
