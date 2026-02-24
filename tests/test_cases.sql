@@ -1,4 +1,10 @@
--- Prueba: Intentar meter un pastel con un ID que ya existe
--- Esto debería marcar ERROR porque el cake_id es PRIMARY KEY
-INSERT INTO cakes (cake_id, cake_name, price) VALUES (1, 'Pastel Repetido', 100.00);
+-- Caso de Prueba 1: Intentar insertar un usuario sin correo (Debe fallar)
+INSERT INTO USERS (name, email, password, role) 
+VALUES ('Error Man', NULL, '123', 'Client');
 
+-- Caso de Prueba 2: Intentar registrar un producto con precio negativo (Debe fallar)
+INSERT INTO PRODUCTS (name, price, category_id) 
+VALUES ('Pastel Gratis', -50.00, 1);
+
+-- Caso de Prueba 3: Intentar borrar una categoría que tiene productos asociados (Debe fallar por FK)
+DELETE FROM CATEGORIES WHERE category_id = 1;
