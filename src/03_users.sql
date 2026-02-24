@@ -1,6 +1,7 @@
--- Creamos un usuario para el vendedor
-CREATE USER 'seller_user'@'localhost' IDENTIFIED BY 'Pastel123';
+-- Crear el usuario de la aplicación
+CREATE USER 'bakery_admin'@'localhost' IDENTIFIED BY 'Pastelito2026!';
 
--- Le damos permiso solo para ver pasteles y vender
-GRANT SELECT, INSERT ON cakes TO 'seller_user'@'localhost';
+-- Darle permisos totales sobre la base de datos (suponiendo que se llama bakery_db)
+GRANT ALL PRIVILEGES ON bakery_db.* TO 'bakery_admin'@'localhost';
 
+FLUSH PRIVILEGES;
