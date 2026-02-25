@@ -1,15 +1,18 @@
 -- Tabla de usuarios (el núcleo de la autenticación)
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    -- ¿Qué otros campos faltan aquí de tu código original? 
-    -- Recuerda usar minúsculas.
+     name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('Admin', 'Staff', 'Client') NOT NULL
 );
 
 -- Tabla de clientes (perfil extendido)
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
-    -- Añade los campos restantes aquí
+     phone VARCHAR(20),
+    address TEXT,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
