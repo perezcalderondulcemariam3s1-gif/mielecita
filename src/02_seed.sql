@@ -1,4 +1,3 @@
-
 -- 1. Insertar Categorías 
 -- (Deben ir primero porque los productos dependen de ellas)
 INSERT INTO categories (name) VALUES 
