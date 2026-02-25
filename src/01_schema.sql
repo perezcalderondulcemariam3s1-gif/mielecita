@@ -1,22 +1,19 @@
--- Estructura de la Base de Datos para la Pastelería
-
-CREATE TABLE USERS (
+-- Tabla de usuarios (el núcleo de la autenticación)
+CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('Admin', 'Staff', 'Client') NOT NULL
+    -- ¿Qué otros campos faltan aquí de tu código original? 
+    -- Recuerda usar minúsculas.
 );
 
-CREATE TABLE CUSTOMERS (
+-- Tabla de clientes (perfil extendido)
+CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    phone VARCHAR(20),
-    address TEXT,
-    FOREIGN KEY (user_id) REFERENCES USERS(user_id)
+    user_id INT NOT NULL,
+    -- Añade los campos restantes aquí
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE EMPLOYEES (
+CREATE TABLE employees (
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     job_title VARCHAR(50),
@@ -24,12 +21,12 @@ CREATE TABLE EMPLOYEES (
     FOREIGN KEY (user_id) REFERENCES USERS(user_id)
 );
 
-CREATE TABLE CATEGORIES (
+CREATE TABLE categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE PRODUCTS (
+CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -38,7 +35,7 @@ CREATE TABLE PRODUCTS (
     FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id)
 );
 
-CREATE TABLE SALES (
+CREATE TABLE sales (
     sale_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
     employee_id INT,
@@ -49,7 +46,7 @@ CREATE TABLE SALES (
     FOREIGN KEY (employee_id) REFERENCES EMPLOYEES(employee_id)
 );
 
-CREATE TABLE SALES_DETAILS (
+CREATE TABLE sales_details (
     detail_id INT PRIMARY KEY AUTO_INCREMENT,
     sale_id INT,
     product_id INT,
@@ -59,7 +56,7 @@ CREATE TABLE SALES_DETAILS (
     FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
 );
 
-CREATE TABLE INVENTORY (
+CREATE TABLE inventory (
     inventory_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
     stock INT DEFAULT 0,
