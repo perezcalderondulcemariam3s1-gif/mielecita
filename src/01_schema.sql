@@ -32,7 +32,7 @@ CREATE TABLE categories (
 CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
+    price DECIMAL(10,2) NOT NULL CHECK (price > 0),
     category_id INT NOT NULL,
    unit_measure VARCHAR(20),
     description TEXT, -- <--- ¡Añade esto para lo de "Tres leches"!
