@@ -29,14 +29,14 @@ INSERT INTO products (name, price, category_id, unit_measure, description) VALUE
 ('Café Americano', 30.00, 2, 'Vaso', 'Grano recién molido'),
 ('Malteada Fresa', 50.00, 2, 'Vaso', 'Con trozos de fruta natural'),
 -- SNACKS (Category 3)
-('Galletas Chips Chocolate', 30.00, 4, '4', ' harina',' chispas de chocolate',' vainilla'),
-('Muffin de Arándano', 32.00, 4, '1', 'Arándanos frescos',' harina'),
+('Galletas Chips Chocolate', 30.00, 3, '4', ' harina, chispas de chocolate, vainilla'),
+('Muffin de Arándano', 32.00, 3, '3', 'Arándanos frescos, harina'),
 -- GELATINAS (Category 4)
 ('Gelatina de Mosaico', 25.00, 4, 'Porcion', 'Cubos de colores en base de leche'),
-('Gelatina de Fresa', 30.00, 4, 'Porcion', 'Fresas naturales', 'grenetina, azúcar',' leche condensada', 'crema', 'agua'), 
+('Gelatina de Fresa', 30.00, 4, 'Porcion', 'Fresas naturales, grenetina, azúcar, leche condensada, crema, agua'), 
 -- HELADOS (Category 5)
-('Helado de Chocolate', 45.00, 4, 'Porcion', 'Cacao puro', 'leche'),
-('Helado de Pistacho', 48.00, 4, 'Porcion', ' Pistachos tostados', 'leche');
+('Helado de Chocolate', 45.00, 5, 'Porcion', 'Cacao puro, leche'),
+('Helado de Pistacho', 48.00, 5, 'Porcion', ' Pistachos tostados, leche');
 -- 5. Inicializar Inventario
 -- (El product_id debe existir en la tabla products)
 INSERT INTO inventory (product_id, stock, min_stock) VALUES 
