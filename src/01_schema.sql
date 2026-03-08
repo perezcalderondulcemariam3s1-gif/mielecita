@@ -21,7 +21,7 @@ CREATE TABLE employees (
     user_id INT,
     job_title VARCHAR(50),
     salary DECIMAL(10,2),
-    FOREIGN KEY (user_id) REFERENCES USERS(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE categories (
@@ -34,8 +34,9 @@ CREATE TABLE products (
     name VARCHAR(100) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     category_id INT NOT NULL,
-    unit_measure VARCHAR(20),
-    FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id)
+   unit_measure VARCHAR(20),
+    description TEXT, -- <--- ¡Añade esto para lo de "Tres leches"!
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
 CREATE TABLE sales (
@@ -44,9 +45,10 @@ CREATE TABLE sales (
     employee_id INT,
     sale_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     total DECIMAL(10,2),
-    payment_type VARCHAR(50),
-    FOREIGN KEY (customer_id) REFERENCES CUSTOMERS(customer_id),
-    FOREIGN KEY (employee_id) REFERENCES EMPLOYEES(employee_id)
+    payment_type ENUM('Cash', 'Card') NOT NULL,
+    shipping_address TEXT, -- <--- ¡Aquí llega el pedido!
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 CREATE TABLE sales_details (
@@ -55,14 +57,14 @@ CREATE TABLE sales_details (
     product_id INT,
     quantity INT NOT NULL,
     unit_price DECIMAL(10,2),
-    FOREIGN KEY (sale_id) REFERENCES SALES(sale_id),
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
+    FOREIGN KEY (sale_id) REFERENCES sales(sale_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE inventory (
     inventory_id INT PRIMARY KEY AUTO_INCREMENT,
-    product_id INT,
+    product_id INT UNIQUE, -- <--- ¡Esto evita duplicados!
     stock INT DEFAULT 0,
     min_stock INT DEFAULT 5,
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
