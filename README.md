@@ -8,7 +8,7 @@ Bienvenidos al repositorio oficial de **Mielecita**. Este sistema gestiona inven
 * **SQL Developer:** [Rosales Cortes Joel Raymundo]
 * **Databas e Adminis trator:** [Perez Calderon Dulce Maria]
 * **. The Query Master:** [Amayo Torres Juan Antonio y Bañuelos Sandoval Aleri]
-* **Tester:** [Elizalde Vian Leonel]
+* **Tester:** [Elizalde Vian Alberto Leonel]
 
 ## 📁 Estructura del Proyecto
 * `/scripts`: Creación de tablas, datos iniciales y permisos.
