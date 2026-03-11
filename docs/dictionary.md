@@ -11,7 +11,7 @@ This document provides a detailed technical description of the database structur
 | **name** | VARCHAR | - | Full name of the user (Customer or Employee). |
 | **email** | VARCHAR | - | Unique email address for authentication. |
 | **password** | VARCHAR | - | Hashed password for security. |
-| **role** | VARCHAR | - | System role: 'Admin', 'Staff', or 'Client'. |
+
 
 ## 2. CUSTOMERS Table
 | Column | Type | Key | Description (English) |
