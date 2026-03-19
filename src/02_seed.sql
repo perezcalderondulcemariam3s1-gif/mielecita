@@ -10,8 +10,8 @@ INSERT INTO categories (name) VALUES
 -- 2. Insertar Usuarios
 -- (Primero el usuario, luego el perfil de empleado o cliente)
 INSERT INTO users (name, email, password, role) VALUES  
-('Ana Repostera', 'ana@pasteleria.com', 'hash_password_123', 'Staff'),
-('Juan Perez', 'juan.perez@email.com', 'hash_password_456', 'Client');
+('Ana Repostera', 'ana@pasteleria.com', '123456', 'Staff'),
+('Juan Perez', 'juan.perez@email.com', 'ASDFGHJKL', 'Client');
 
 -- 3. Completar perfiles (Relacionando con el user_id)
 INSERT INTO employees (user_id, job_title, salary) VALUES 
