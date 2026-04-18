@@ -1,51 +1,55 @@
--- 1. Insertar Categorías 
--- (Deben ir primero porque los productos dependen de ellas)
-INSERT INTO categories (name) VALUES 
-('Postres'), 
-('Bebidas'), 
-('Snacks'),
-('Gelatinas'),
-('Helados');
+-- ======================================================
+-- 02_SEED.SQL - CARGA DE DATOS PARA MIELECITA
+-- ======================================================
 
--- 2. Insertar Usuarios
--- (Primero el usuario, luego el perfil de empleado o cliente)
-INSERT INTO users (name, email, password, role) VALUES  
-('Ana Repostera', 'ana@pasteleria.com', '123456', 'Staff'),
-('Juan Perez', 'juan.perez@email.com', 'ASDFGHJKL', 'Client');
+-- 1. INSERTAR CATEGORÍAS (Primero para evitar errores de FK) 
+INSERT INTO CATEGORIES (name) VALUES 
+('Pasteles'), 
+('Galletas'), 
+('Bebidas Calientes'), 
+('Postres Fríos');
 
--- 3. Completar perfiles (Relacionando con el user_id)
-INSERT INTO employees (user_id, job_title, salary) VALUES 
-(1, 'Chef Pastelera', 1200.00);
+-- 2. INSERTAR USUARIOS (Padre de Clientes y Empleados) [cite: 9, 10]
+-- Nota: Las contraseñas están en texto simulando un hash de 255 caracteres [cite: 57]
+INSERT INTO USERS (username, email, password, role) VALUES 
+('admin_ana', 'ana@mielecita.com', '$2y$10$e0MYzXy..randomhash255', 'Admin'),
+('carlos_staff', 'carlos@mielecita.com', '$2y$10$e0MYzXy..randomhash255', 'Staff'),
+('juan_perez', 'juanp@gmail.com', '$2y$10$e0MYzXy..randomhash255', 'Client'),
+('maria_lopez', 'mlopez@gmail.com', '$2y$10$e0MYzXy..randomhash255', 'Client');
 
-INSERT INTO customers (user_id, phone, address) VALUES 
-(2, '555-1234', 'Calle Dulce #123');
+-- 3. INSERTAR PERFILES DE EMPLEADOS Y CLIENTES [cite: 4, 10]
+INSERT INTO EMPLOYEES (employee_id, position, hire_date) VALUES 
+(2, 'Vendedor Principal', '2024-01-15');
 
--- 4. Insertar Productos (Agrupados por categoría para orden)
-INSERT INTO products (name, price, category_id, unit_measure, description) VALUES  
--- POSTRES (Category 1)
-('Pastel de Tres Leches', 45.00, 1, 'Rebanada', 'Bañado en tres leches con canela'),
-('Pay de Limón', 35.00, 1, 'Porción', 'Base de galleta y crema cítrica'),
--- BEBIDAS (Category 2)
-('Café Americano', 30.00, 2, 'Vaso', 'Grano recién molido'),
-('Malteada Fresa', 50.00, 2, 'Vaso', 'Con trozos de fruta natural'),
--- SNACKS (Category 3)
-('Galletas Chips Chocolate', 30.00, 3, '4', ' harina, chispas de chocolate, vainilla'),
-('Muffin de Arándano', 32.00, 3, '3', 'Arándanos frescos, harina'),
--- GELATINAS (Category 4)
-('Gelatina de Mosaico', 25.00, 4, 'Porcion', 'Cubos de colores en base de leche'),
-('Gelatina de Fresa', 30.00, 4, 'Porcion', 'Fresas naturales, grenetina, azúcar, leche condensada, crema, agua'), 
--- HELADOS (Category 5)
-('Helado de Chocolate', 45.00, 5, 'Porcion', 'Cacao puro, leche'),
-('Helado de Pistacho', 48.00, 5, 'Porcion', ' Pistachos tostados, leche');
--- 5. Inicializar Inventario
-INSERT INTO inventory (product_id, stock, min_stock) VALUES 
-(1, 10, 2),   -- Pastel de Tres Leches
-(2, 50, 10),  -- Pay de Limón
-(3, 30, 5),   -- Café Americano
-(4, 20, 5),   -- Malteada Fresa
-(5, 100, 20), -- Galletas Chips
-(6, 40, 10),  -- Muffin de Arándano
-(7, 25, 5),   -- Gelatina de Mosaico
-(8, 25, 5),   -- Gelatina de Fresa
-(9, 15, 3),   -- Helado de Chocolate
-(10, 15, 3);  -- Helado de Pistacho
+INSERT INTO CUSTOMERS (customer_id, phone, address) VALUES 
+(3, '555-0123', 'Calle Postre Dulce #123'),
+(4, '555-4567', 'Av. Siempre Viva #742');
+
+-- 4. INSERTAR PRODUCTOS (Con descripción TEXT y precio DECIMAL) [cite: 46, 63]
+INSERT INTO PRODUCTS (name, description, price, category_id) VALUES 
+('Pastel de Tres Leches', 'Clásico pastel bañado en tres leches con canela y vainilla', 350.00, 1),
+('Galleta de Chispas', 'Galleta crujiente con trozos de chocolate amargo', 25.50, 2),
+('Capuchino', 'Café con leche espumosa y un toque de cacao', 45.00, 3),
+('Pastel de Chocolate', 'Pastel de chocolate belga con relleno de fudge', 400.00, 1);
+
+-- 5. CONTROL DE INVENTARIO [cite: 5, 61]
+-- Cada producto tiene su fila única de stock y stock mínimo [cite: 60, 61]
+INSERT INTO INVENTORY (product_id, stock, min_stock) VALUES 
+(1, 10, 3), -- Pastel de Tres Leches
+(2, 50, 10), -- Galletas
+(3, 100, 15), -- Insumos Bebidas
+(4, 2, 5);  -- Pastel de Chocolate (Este disparará la 'Alerta de Stock Bajo') 
+
+-- 6. PROCESO DE VENTAS (Relación con Clientes y Empleados) [cite: 6, 72]
+-- Se usa CURRENT_TIMESTAMP automáticamente [cite: 48]
+INSERT INTO SALES (customer_id, employee_id, total_amount, payment_type) VALUES 
+(3, 2, 400.50, 'Card'),
+(4, 2, 51.00, 'Cash');
+
+-- 7. DETALLES DE VENTA (La tabla intermedia N:M) [cite: 17, 32]
+-- Aquí es donde rompemos la relación Muchos a Muchos [cite: 18, 19]
+INSERT INTO SALES_DETAILS (sale_id, product_id, quantity, unit_price) VALUES 
+(1, 1, 1, 350.00), -- Venta 1: Un pastel de tres leches
+(1, 3, 1, 45.00),  -- Venta 1: Un capuchino
+(1, 2, 2, 25.50),  -- Venta 1: Dos galletas
+(2, 2, 2, 25.50);  -- Venta 2: Dos galletas
