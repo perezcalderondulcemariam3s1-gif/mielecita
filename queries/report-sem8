@@ -1,3 +1,25 @@
- Resumen del Proyecto: Mielecita Pastelería
-El Proceso de DesarrolloEl camino para construir la arquitectura de Mielecita fue un reto lleno de aprendizaje. Inicialmente, nos enfrentamos a la dificultad de encontrar una aplicación o herramienta que realmente se adaptara a nuestras necesidades técnicas y de diseño. Probamos diversas opciones, y aunque al principio fue complicado y por momentos frustrante, finalmente logramos consolidar un flujo de trabajo efectivo entre Figma, Lovable y nuestra base de datos en Supabase.
-Trabajo en Equipo y DesafíosDurante nuestras juntas de equipo, experimentamos momentos de confusión. Al ser conceptos nuevos, a veces nos "enredábamos" intentando comprender cómo conectar la lógica del negocio con la estructura técnica.Sin embargo, el rol del Scrum Master fue fundamental:Claridad: Nos explicaba a detalle los conceptos que no entendíamos, como la Tercera Forma Normal (3NF) y por qué era vital para evitar datos duplicados.Facilitación: Nos ayudó a investigar y encontrar herramientas que facilitaron la integración de los datos de forma más rápida y sencilla.Resolución de Conflictos Técnicos: Gracias a su guía, logramos resolver el gran reto de la relación Muchos a Muchos (N:M) entre ventas y productos mediante la creación de la tabla puente SALES_DETAILS.🏆 Logros Técnicos AlcanzadosA pesar de los enredos iniciales, hoy contamos con un sistema robusto que incluye:Especialización de Usuarios: Diferenciación clara entre Clientes y Empleados.Integridad de Datos: Uso estricto de Llaves Primarias (PK) y Foráneas (FK) para evitar datos huérfanos.Seguridad: Implementación de usuarios administrativos con privilegios específicos (GRANT) para proteger la información de la pastelería.
+# 🍰 Mielecita: Project Retrospective & Technical Journey
+
+### 🏗️ 1. Arquitectura y Selección de Stack
+[cite_start]El desarrollo de **Mielecita** comenzó con un reto de ingeniería: encontrar un ecosistema que permitiera una transición fluida entre el diseño visual y la integridad relacional[cite: 118]. [cite_start]Durante las primeras etapas, experimentamos dificultades técnicas para encontrar una plataforma que no limitara nuestra lógica de negocio[cite: 117]. 
+
+Tras varias iteraciones, logramos consolidar un **Stack Tecnológico** robusto:
+* **Figma:** Para el modelado de experiencia de usuario (UX).
+* **Lovable:** Como motor de prototipado rápido para la interfaz.
+* [cite_start]**Supabase (PostgreSQL):** Como el núcleo de datos, donde aplicamos las reglas de integridad que el negocio de pastelería requiere[cite: 113, 118].
+
+### 🧩 2. Desafíos de Normalización y Lógica de Negocio
+[cite_start]Uno de los puntos de mayor fricción en nuestras juntas de desarrollo fue la aplicación de la **Tercera Forma Normal (3NF)**[cite: 141, 221]. [cite_start]Al principio, el equipo tendía a duplicar datos (como nombres de categorías dentro de la tabla de productos), lo que nos causaba "enredos" lógicos[cite: 222].
+
+Gracias a las sesiones de revisión técnica, logramos:
+1.  [cite_start]**Atomizar los datos:** Separamos la gestión de usuarios, clientes y empleados para garantizar la escalabilidad[cite: 119].
+2.  **Resolver la relación N:M:** El desafío más crítico fue la conexión entre `SALES` (Ventas) y `PRODUCTS` (Productos). [cite_start]Entendimos que una venta tiene muchos productos y un producto pertenece a muchas ventas[cite: 129, 131]. [cite_start]La solución fue la implementación de la tabla intermedia `SALES_DETAILS`, actuando como un puente para evitar la redundancia[cite: 132, 147].
+
+### 👑 3. El Rol del Scrum Master como Facilitador
+[cite_start]La superación de la curva de aprendizaje fue posible gracias a la gestión del **Scrum Master**, quien desempeñó funciones críticas de mentoría[cite: 9]:
+* [cite_start]**Clarificación de Conceptos:** Tradujo términos complejos de álgebra relacional y restricciones SQL (como `FOREIGN KEYS` y `ON DELETE CASCADE`) a un lenguaje comprensible para el equipo[cite: 151, 169].
+* **Optimización de Recursos:** Ante la parálisis por la elección de herramientas, el Scrum Master facilitó la investigación de alternativas que permitieran una integración más rápida, reduciendo la fricción en el flujo de trabajo.
+* [cite_start]**Auditoría de Calidad:** Aseguró que cada tabla respetara los estándares de integridad, como el uso de `DECIMAL` para precisión financiera y `UNIQUE` para evitar colisiones en los registros de usuarios[cite: 161, 167].
+
+### 📈 4. Lecciones Aprendidas (Key Takeaways)
+[cite_start]Este proyecto nos demostró que la **comunicación técnica** es tan importante como el código[cite: 17]. [cite_start]Aunque inicialmente nos enredábamos con la estructura, el proceso de "perderse y encontrarse" fortaleció nuestra comprensión de cómo una base de datos bien diseñada es el pilar de cualquier negocio exitoso[cite: 157].
