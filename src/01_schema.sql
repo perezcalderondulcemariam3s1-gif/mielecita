@@ -1,67 +1,64 @@
--- Parte 1: Gestión de Usuarios y Roles
-CREATE TABLE USERS (
+-- Creación de la base de datos
+CREATE DATABASE IF NOT EXISTS mielecita_db;
+USE mielecita_db;
+
+-- 1. Tabla de Usuarios (PK única para cada fila) [cite: 21, 22]
+CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE, -- Restricción de unicidad para seguridad [cite: 52]
-    password VARCHAR(255) NOT NULL,    -- Longitud para contraseñas hasheadas [cite: 57]
-    role ENUM('Admin', 'Staff', 'Client') NOT NULL -- Uso de ENUM para evitar errores [cite: 47]
+    email VARCHAR(255) UNIQUE NOT NULL, -- UNIQUE para evitar duplicados [cite: 52]
+    password VARCHAR(255) NOT NULL,    -- Espacio para contraseñas encriptadas [cite: 57]
+    role ENUM('Admin', 'Staff', 'Client') NOT NULL -- Obliga opciones válidas [cite: 47]
 );
 
-CREATE TABLE CUSTOMERS (
+-- 2. Especialización: Clientes y Empleados (Relación 1:1) [cite: 9, 10]
+CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
     phone VARCHAR(20),
-    address TEXT,
-    FOREIGN KEY (customer_id) REFERENCES USERS(user_id) ON DELETE CASCADE -- Borrado en cascada [cite: 54, 78]
+    FOREIGN KEY (customer_id) REFERENCES users(user_id) ON DELETE CASCADE -- Borrado en cascada [cite: 54, 78]
 );
 
-CREATE TABLE EMPLOYEES (
+CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
-    position VARCHAR(100),
-    hire_date DATE,
-    FOREIGN KEY (employee_id) REFERENCES USERS(user_id) ON DELETE CASCADE [cite: 54]
+    full_name VARCHAR(100) NOT NULL,
+    position VARCHAR(50),
+    FOREIGN KEY (employee_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
--- Parte 2: Productos y Control de Inventario
-CREATE TABLE CATEGORIES (
+-- 3. Categorías y Productos (Relación 1:N) [cite: 11]
+CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL [cite: 11]
+    name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE PRODUCTS (
+CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(150) NOT NULL,
-    description TEXT, -- Para descripciones largas de postres [cite: 63]
-    price DECIMAL(10,2) NOT NULL CHECK (price > 0), -- Precisión exacta y regla de negocio 
-    category_id INT,
-    FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id) [cite: 11]
+    category_id INT, -- FK que conecta con categorías [cite: 24]
+    name VARCHAR(100) NOT NULL,
+    description TEXT, -- TEXT para descripciones largas [cite: 63]
+    price DECIMAL(10,2) NOT NULL CHECK (price > 0), -- Precisión exacta y validación [cite: 46, 53]
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
-CREATE TABLE INVENTORY (
-    inventory_id INT AUTO_INCREMENT PRIMARY KEY,
-    product_id INT UNIQUE, -- Cada producto solo tiene una fila de stock [cite: 60, 61]
-    stock INT NOT NULL DEFAULT 0,
-    min_stock INT NOT NULL DEFAULT 5, -- Para la 'Alerta de Stock Bajo' [cite: 121]
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
-);
--- Parte 3: Proceso de Venta e Integridad Referencial
-CREATE TABLE SALES (
+-- 4. El Reto Técnico: Ventas y Detalles (Relación N:M) [cite: 16, 17]
+CREATE TABLE sales (
     sale_id INT AUTO_INCREMENT PRIMARY KEY,
-    sale_date DATETIME DEFAULT CURRENT_TIMESTAMP, -- Registro automático de hora [cite: 48]
     customer_id INT,
     employee_id INT,
-    total_amount DECIMAL(10,2),
-    payment_type ENUM('Cash', 'Card') NOT NULL, [cite: 47]
-    FOREIGN KEY (customer_id) REFERENCES CUSTOMERS(customer_id), [cite: 72]
-    FOREIGN KEY (employee_id) REFERENCES EMPLOYEES(employee_id)
+    sale_date DATETIME DEFAULT CURRENT_TIMESTAMP, -- Registro automático [cite: 48]
+    total_amount DECIMAL(10,2) NOT NULL,
+    payment_type ENUM('Cash', 'Card') NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
--- Tabla Puente para la relación N:M [cite: 17, 32]
-CREATE TABLE SALES_DETAILS (
-    detail_id INT AUTO_INCREMENT PRIMARY KEY,
-    sale_id INT NOT NULL,
-    product_id INT NOT NULL,
+-- Tabla Puente: SALES_DETAILS [cite: 17, 32]
+CREATE TABLE sales_details (
+    sale_detail_id INT AUTO_INCREMENT PRIMARY KEY,
+    sale_id INT,
+    product_id INT,
     quantity INT NOT NULL,
     unit_price DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (sale_id) REFERENCES SALES(sale_id),
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id) -- Impide 'productos fantasma' [cite: 77]
+    FOREIGN KEY (sale_id) REFERENCES sales(sale_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id) -- Impide productos fantasma [cite: 77]
 );
