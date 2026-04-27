@@ -1,28 +1,16 @@
 -- ======================================================
--- 03_SECURITY.SQL - ADMINISTRACIÓN DE PERMISOS (DBA)
+-- 03_SECURITY.SQL - ACCESO POR CLAVE MAESTRA
 -- ======================================================
 
--- 1. Creación de usuarios de nivel de servidor
--- Administrador Total (Para ti y Wendy)
-CREATE USER IF NOT EXISTS 'mielecita_admin'@'localhost' IDENTIFIED BY 'AdminMielecita2026!';
-CREATE USER IF NOT EXISTS 'wendy_admin'@'localhost' IDENTIFIED BY 'WendyPasteles2026!';
+-- Creamos una tabla para guardar la contraseña de acceso
+CREATE TABLE IF NOT EXISTS app_config (
+    config_key TEXT PRIMARY KEY,
+    config_value TEXT NOT NULL
+);
 
--- Usuario de Staff (Solo para ventas y ver stock)
-CREATE USER IF NOT EXISTS 'staff_user'@'localhost' IDENTIFIED BY 'StaffMielecita123!';
-
--- 2. Asignación de Privilegios (GRANT)
--- Los administradores tienen control total sobre la base de datos
-GRANT ALL PRIVILEGES ON bakery_db.* TO 'mielecita_admin'@'localhost';
-GRANT ALL PRIVILEGES ON bakery_db.* TO 'wendy_admin'@'localhost';
-
--- El staff solo puede ver productos, ver stock y registrar ventas
-GRANT SELECT ON bakery_db.products TO 'staff_user'@'localhost';
-GRANT SELECT ON bakery_db.inventory TO 'staff_user'@'localhost';
-GRANT INSERT, SELECT ON bakery_db.sales TO 'staff_user'@'localhost';
-GRANT INSERT, SELECT ON bakery_db.sales_details TO 'staff_user'@'localhost';
-
--- 3. Aplicar cambios
-FLUSH PRIVILEGES;
-
--- 4. Auditoría (Verificar permisos)
-SHOW GRANTS FOR 'mielecita_admin'@'localhost';
+-- Insertamos tu contraseña específica
+-- Nota: En un sistema real se encripta, pero para tu proyecto 
+-- usaremos el texto plano que definiste.
+INSERT INTO app_config (config_key, config_value)
+VALUES ('access_password', '20070224miel')
+ON CONFLICT (config_key) DO UPDATE SET config_value = '20070224miel';
