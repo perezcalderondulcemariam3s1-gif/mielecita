@@ -6,9 +6,10 @@ Bienvenidos al repositorio oficial de **Mielecita**. Este sistema gestiona inven
 ## 👥 Integrantes de la Célula
 * **Analista:** [Hernandez Nextle Wendy Stefany]
 * **SQL Developer:** [Rosales Cortes Joel Raymundo]
-* **Databas e Adminis trator:** [Perez Calderon Dulce Maria]
-* **. The Query Master:** [Amayo Torres Juan Antonio y Bañuelos Sandoval Aleri]
-* **Tester:** [Elizalde Vian Alberto Leonel]
+* **Databas e Adminis trator:** [Bañuelos Sandoval Aleri]
+* **. The Query Master:** [Amayo Torres Juan Antonio ]
+* **Tester:** [Pozos Urbina Jesus Leonardo]
+* Scrm Master:**[Perez Calderon Dulce Maria]
 
 ## 📁 Estructura del Proyecto
 * `/scripts`: Creación de tablas, datos iniciales y permisos.
