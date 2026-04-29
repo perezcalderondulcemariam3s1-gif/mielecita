@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS app_config (
 -- Nota: En un sistema real se encripta, pero para tu proyecto 
 -- usaremos el texto plano que definiste.
 INSERT INTO app_config (config_key, config_value)
-VALUES ('access_password', '20070224miel')
-ON CONFLICT (config_key) DO UPDATE SET config_value = '20070224miel';
+VALUES ('access_password', '20070224mielecita')
+ON CONFLICT (config_key) DO UPDATE SET config_value = '20070224mielecita';
