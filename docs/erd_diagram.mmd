@@ -1,38 +1,76 @@
 erDiagram
-    USERS ||--o| CUSTOMERS : "is"
-    USERS ||--o| EMPLOYEES : "is"
-    CATEGORIES ||--o{ PRODUCTS : "contains"
-    PRODUCTS ||--o{ SALE_DETAILS : "included_in"
-    SALES ||--o{ SALE_DETAILS : "has"
-    CUSTOMERS ||--o{ SALES : "buys"
-    EMPLOYEES ||--o{ SALES : "processes"
-    PRODUCTS ||--o{ INVENTORY : "registered_in"
-    SUPPLIERS ||--o{ INGREDIENT_PURCHASES : "supplies"
-    CUSTOMERS ||--o{ ORDERS : "places"
-    ORDERS ||--o{ ORDER_DETAILS : "includes"
+    users ||--o| customers : "is"
+    users ||--o| employees : "is"
+    categories ||--o{ products : "contains"
+    products ||--o{ sales_details : "included_in"
+    sales ||--o{ sales_details : "has"
+    customers ||--o{ sales : "buys"
+    employees ||--o{ sales : "processes"
+    products ||--o{ inventory : "registered_in"
+    suppliers ||--o{ ingredient_purchases : "supplies"
+    customers ||--o{ orders : "places"
+    orders ||--o{ order_details : "includes"
 
-    USERS {
+    users {
         int user_id PK
-        string name
+        string username
         string email
         string password
+        string role
     }
 
-    CUSTOMERS {
+    customers {
         int customer_id PK
         int user_id FK
         string phone
         string address
     }
 
-    EMPLOYEES {
+    employees {
         int employee_id PK
         int user_id FK
-        string job_title
-        decimal salary
+        string position
+        date hire_date
     }
 
-    ORDERS {
+    products {
+        int product_id PK
+        int category_id FK
+        string name
+        string description
+        decimal price
+    }
+
+    inventory {
+        int inventory_id PK
+        int product_id FK "unique"
+        int stock
+        int min_stock
+    }
+
+    sales {
+        int sale_id PK
+        int customer_id FK
+        int employee_id FK
+        datetime sale_date
+        decimal total_amount
+        string payment_type
+    }
+
+    sales_details {
+        int sale_detail_id PK
+        int sale_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+
+    categories {
+        int category_id PK
+        string name
+    }
+
+    orders {
         int order_id PK
         int customer_id FK
         datetime order_date
@@ -40,59 +78,21 @@ erDiagram
         decimal estimated_total
     }
 
-    ORDER_DETAILS {
+    order_details {
         int order_detail_id PK
         int order_id FK
         int product_id FK
         int quantity
     }
 
-    PRODUCTS {
-        int product_id PK
-        string name
-        decimal price
-        int category_id FK
-        string unit_of_measure
-    }
-
-    SALES {
-        int sale_id PK
-        int customer_id FK
-        int employee_id FK
-        datetime sale_date
-        decimal total
-        string payment_type
-    }
-
-    SALE_DETAILS {
-        int detail_id PK
-        int sale_id FK
-        int product_id FK
-        int quantity
-        decimal unit_price
-    }
-
-    INVENTORY {
-        int inventory_id PK
-        int product_id FK
-        int stock
-        int minimum_stock
-    }
-
-    CATEGORIES {
-        int category_id PK
-        string name
-    }
-
-    SUPPLIERS {
+    suppliers {
         int supplier_id PK
         string name
         string contact_phone
         string email
-        string address
     }
 
-    INGREDIENT_PURCHASES {
+    ingredient_purchases {
         int purchase_id PK
         int supplier_id FK
         string ingredient_name
