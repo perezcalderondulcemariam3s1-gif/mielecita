@@ -7,5 +7,5 @@
 | **3. The Database Administrator** |Bañuelos Sandoval Aleri| Gestiona seguridad, usuarios y backups. Ensambla el entregable final. | `03_users.sql`, Backup Strategy |
 | **4. The Query Master** | Amayo Torres Juan Antonio| Pobla la base de datos (datos semilla) y extrae reportes de inteligencia de negocios. | `02_seed.sql`, `queries/*.sql` |
 | **5. The SQL Tester** | Pozos Urbina Jesus Leonardo| Intenta romper la BD. Valida integridad referencial y tipos de datos. | `tests/bug_report.md`, `tests/test_cases.sql` |
-| **6. Scrum Master ** | Perez Calderon Dulc Maria| Intenta facilitar el trabajo d el equipo y se encarga de ver como van. | `queries_report` |
+| **6. scrum master** | Perez Calderon Dulc Maria| Intenta facilitar el trabajo d el equipo y se encarga de ver como van. | `queries_report` |
 
