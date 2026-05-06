@@ -1,101 +1,102 @@
 erDiagram
-    USUARIOS ||--o| CLIENTES : "es"
-    USUARIOS ||--o| EMPLEADOS : "es"
-    CATEGORIAS ||--o{ PRODUCTOS : "contiene"
-    PRODUCTOS ||--o{ DETALLES_VENTA : "incluido_en"
-    VENTAS ||--o{ DETALLES_VENTA : "tiene"
-    CLIENTES ||--o{ VENTAS : "compra"
-    EMPLEADOS ||--o{ VENTAS : "procesa"
-    PRODUCTOS ||--o{ INVENTARIO : "registrado_en"
-    PROVEEDORES ||--o{ COMPRA_INGREDIENTES : "suministra"
-    CLIENTES ||--o{ PEDIDOS : "realiza"
-    PEDIDOS ||--o{ DETALLES_PEDIDO : "incluye"
+    USERS ||--o| CUSTOMERS : "is"
+    USERS ||--o| EMPLOYEES : "is"
+    CATEGORIES ||--o{ PRODUCTS : "contains"
+    PRODUCTS ||--o{ SALE_DETAILS : "included_in"
+    SALES ||--o{ SALE_DETAILS : "has"
+    CUSTOMERS ||--o{ SALES : "buys"
+    EMPLOYEES ||--o{ SALES : "processes"
+    PRODUCTS ||--o{ INVENTORY : "registered_in"
+    SUPPLIERS ||--o{ INGREDIENT_PURCHASES : "supplies"
+    CUSTOMERS ||--o{ ORDERS : "places"
+    ORDERS ||--o{ ORDER_DETAILS : "includes"
 
-    USUARIOS {
-        int usuario_id PK
-        string nombre
-        string correo
-        string contraseña
+    USERS {
+        int user_id PK
+        string name
+        string email
+        string password
     }
 
-    CLIENTES {
-        int cliente_id PK
-        int usuario_id FK
-        string telefono
-        string direccion
+    CUSTOMERS {
+        int customer_id PK
+        int user_id FK
+        string phone
+        string address
     }
 
-    EMPLEADOS {
-        int empleado_id PK
-        int usuario_id FK
-        string puesto_trabajo
-        decimal salario
+    EMPLOYEES {
+        int employee_id PK
+        int user_id FK
+        string job_title
+        decimal salary
     }
 
-    PEDIDOS {
-        int pedido_id PK
-        int cliente_id FK
-        datetime fecha_pedido
-        string estado
-        decimal total_estimado
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        datetime order_date
+        string status
+        decimal estimated_total
     }
 
-    DETALLES_PEDIDO {
-        int detalle_pedido_id PK
-        int pedido_id FK
-        int producto_id FK
-        int cantidad
+    ORDER_DETAILS {
+        int order_detail_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
     }
 
-    PRODUCTOS {
-        int producto_id PK
-        string nombre
-        decimal precio
-        int categoria_id FK
-        string unidad_medida
+    PRODUCTS {
+        int product_id PK
+        string name
+        decimal price
+        int category_id FK
+        string unit_of_measure
     }
-    VENTAS {
-        int venta_id PK
-        int cliente_id FK
-        int empleado_id FK
-        datetime fecha_venta
+
+    SALES {
+        int sale_id PK
+        int customer_id FK
+        int employee_id FK
+        datetime sale_date
         decimal total
-        string tipo_pago
+        string payment_type
     }
 
-    DETALLES_VENTA {
-        int detalle_id PK
-        int venta_id FK
-        int producto_id FK
-        int cantidad
-        decimal precio_unitario
+    SALE_DETAILS {
+        int detail_id PK
+        int sale_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
     }
 
-    INVENTARIO {
-        int inventario_id PK
-        int producto_id FK
+    INVENTORY {
+        int inventory_id PK
+        int product_id FK
         int stock
-        int stock_minimo
+        int minimum_stock
     }
 
-    CATEGORIAS {
-        int categoria_id PK
-        string nombre
+    CATEGORIES {
+        int category_id PK
+        string name
     }
 
-    PROVEEDORES {
-        int proveedor_id PK
-        string nombre
-        string telefono_contacto
-        string correo
-        string direccion
+    SUPPLIERS {
+        int supplier_id PK
+        string name
+        string contact_phone
+        string email
+        string address
     }
 
-    COMPRA_INGREDIENTES {
-        int compra_id PK
-        int proveedor_id FK
-        string nombre_ingrediente
-        decimal costo
-        int cantidad
-        datetime fecha_compra
+    INGREDIENT_PURCHASES {
+        int purchase_id PK
+        int supplier_id FK
+        string ingredient_name
+        decimal cost
+        int quantity
+        datetime purchase_date
     }
