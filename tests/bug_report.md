@@ -1,4 +1,4 @@
-# 🐜 Reporte de Errores - Proyecto Mielecita
+#  Reporte de Errores - Proyecto Mielecita
 
 Este documento detalla los fallos encontrados durante las pruebas de estrés de la base de datos y las propuestas de mejora para la Fase 2.
 
