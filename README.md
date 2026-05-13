@@ -1,24 +1,33 @@
+# 🍰 Mielecita - Pastry Management System
 
-# 🍰 Mielecita - Pastry Management System 🚀
+
 
 <p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build Status">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
+
+  <img src="https://img.shields.io/badge/Status-Finalized-green?style=for-the-badge" alt="Status">
+
+  <img src="https://img.shields.io/badge/Semester-Project-blue?style=for-the-badge" alt="Semester">
+
+  <img src="https://img.shields.io/badge/Tech-PostgreSQL%20|%20Lovable-orange?style=for-the-badge" alt="Tech">
+
 </p>
 
-> **Elevator Pitch:** Mielecita is a high-performance e-commerce ecosystem designed to digitize artisanal pastry operations, featuring automated inventory control, secure Gmail-only authentication, and a real-time catalog of 100+ gourmet products.
 
----
 
 ## 📖 About the Project
 
 **Mielecita** is a comprehensive technology solution designed to digitize and optimize the operations of an artisanal pastry shop. The system transforms manual logs into an automated data management environment, allowing precise control over inventory, sales, and information security.
+
+
+
 With a real-world catalog of **100 products**, the project integrates a robust cloud database with an intelligent interface, ensuring that every cake, drink, or snack is always accounted for.
 
 
 
 ---
+
+
+
 ## 👥 Scrum Team Members
 
 * **Scrum Master:** Perez Calderon Dulce Maria
@@ -35,29 +44,10 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 
 
 
-## 📖 Table of Contents
-* [Getting Started](#-getting-started)
-* [Usage Examples](#-usage-examples)
-* [Architecture & Tech Stack](#-architecture--tech-stack)
-* [Product Backlog Evolution](#-product-backlog-evolution)
-* [Running Tests](#-running-tests)
-* [Contributing](#-contributing)
-* [License](#-license)
-
 ---
 
-## ⚡ Getting Started
 
-Follow these instructions to set up a local copy of the project on your machine for development and testing purposes.
 
-### Prerequisites
-Tools and environments required to run the project:
-* **Git** (Version control)
-* **Supabase Account** (PostgreSQL Cloud Database)
-* **Lovable.dev Access** (Frontend Logic & AI Integration)
-* **Modern Web Browser** (Chrome/Edge recommended)
-
-### Installation
 ## 📈 Product Backlog Evolution
 
 As **Scrum Master**, I managed the progression of requirements across three key academic phases:
@@ -96,6 +86,18 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 
 * [x] **US-P3-01:** **Email Validation:** Restrict access to `@gmail.com` domains only.
 
+* [x] **US-P3-02:** **Password Strength:** Minimum **12 characters** requirement for new users.
+
+* [x] **US-P3-03:** **Stock Integrity:** SQL **Triggers** to block sales when inventory is zero.
+
+* [x] **US-P3-04:** **Safe Maintenance:** Transaction protocols for `UPDATE` and `DELETE` operations.
+
+
+
+---
+
+
+
 ## 📂 Repository Structure
 
 * 📂 **`src/`**: Core DDL/DML scripts.
@@ -109,6 +111,10 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 * 📂 **`queries/`**: Business Intelligence reports and advanced filters.
 
 * 📂 **`tests/`**: Stress tests, security cases, and Bug Reports.
+
+
+
+---
 
 
 
@@ -147,18 +153,3 @@ As **Scrum Master**, I managed the progression of requirements across three key 
   Made with ❤️ by the Mielecita Team - 2026
 
 </p>
-
-
-1. **Clone the repository:**
-```bash
-git clone [https://github.com/PerezDulce/mielecita-pastry-system.git](https://github.com/PerezDulce/mielecita-pastry-system.git)
-
-
-
-* [x] **US-P3-02:** **Password Strength:** Minimum **12 characters** requirement for new users.
-
-* [x] **US-P3-03:** **Stock Integrity:** SQL **Triggers** to block sales when inventory is zero.
-
-* [x] **US-P3-04:** **Safe Maintenance:** Transaction protocols for `UPDATE` and `DELETE` operations.
-
-
