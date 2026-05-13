@@ -190,11 +190,6 @@ Tools and environments required to run the project:
 * **Modern Web Browser** (Chrome/Edge recommended)
 
 ### Installation
-
-1. **Clone the repository:**
-```bash
-git clone [https://github.com/PerezDulce/mielecita-pastry-system.git](https://github.com/PerezDulce/mielecita-pastry-system.git)
-
 ## 📈 Product Backlog Evolution
 
 As **Scrum Master**, I managed the progression of requirements across three key academic phases:
@@ -232,6 +227,12 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 *Focus: Data integrity, advanced validation, and maintenance.*
 
 * [x] **US-P3-01:** **Email Validation:** Restrict access to `@gmail.com` domains only.
+
+1. **Clone the repository:**
+```bash
+git clone [https://github.com/PerezDulce/mielecita-pastry-system.git](https://github.com/PerezDulce/mielecita-pastry-system.git)
+
+
 
 * [x] **US-P3-02:** **Password Strength:** Minimum **12 characters** requirement for new users.
 
