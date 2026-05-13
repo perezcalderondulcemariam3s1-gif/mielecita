@@ -194,6 +194,7 @@ Tools and environments required to run the project:
 1. **Clone the repository:**
 ```bash
 git clone [https://github.com/PerezDulce/mielecita-pastry-system.git](https://github.com/PerezDulce/mielecita-pastry-system.git)
+
 ## 📈 Product Backlog Evolution
 
 As **Scrum Master**, I managed the progression of requirements across three key academic phases:
@@ -203,14 +204,39 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 ### 🎨 Phase 1: Prototyping (Figma)
 
 *Focus: User Experience (UX) and Visual Identity.*
+
 * [x] **US-P1-01:** Branding and "Mielecita" visual identity definition.
+
 * [x] **US-P1-02:** Low-fidelity Wireframes for navigation flow.
+
 * [x] **US-P1-03:** Interactive Figma prototype (Login & Catalog screens).
 
 
+
 ### 🔌 Phase 2: Implementation (Lovable & SQL)
+
 *Focus: Database connectivity and functional catalog.*
+
 * [x] **US-P2-01:** UI migration from Figma to Lovable components.
+
 * [x] **US-P2-02:** Database Schema design in Supabase (DDL).
+
 * [x] **US-P2-03:** Bulk loading of **100 real products** (Seed Data).
+
 * [x] **US-P2-04:** Dynamic category filtering (Pastries, Drinks, Snacks, etc.).
+
+
+
+### 🔐 Phase 3: Security & Business Rules (Final Polish)
+
+*Focus: Data integrity, advanced validation, and maintenance.*
+
+* [x] **US-P3-01:** **Email Validation:** Restrict access to `@gmail.com` domains only.
+
+* [x] **US-P3-02:** **Password Strength:** Minimum **12 characters** requirement for new users.
+
+* [x] **US-P3-03:** **Stock Integrity:** SQL **Triggers** to block sales when inventory is zero.
+
+* [x] **US-P3-04:** **Safe Maintenance:** Transaction protocols for `UPDATE` and `DELETE` operations.
+
+
