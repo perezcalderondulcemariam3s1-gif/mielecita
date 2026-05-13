@@ -1,52 +1,74 @@
-# 📋 Documentación de Historias de Usuario - Proyecto Mielecita (Semanas 7-11)
+# 🍰 Project Mielecita: Digital Transformation & E-commerce Strategy
 
-Como **Scrum Master**, he integrado los requerimientos visuales de Figma con la lógica técnica de Base de Datos (Supabase/Lovable) para garantizar un producto final robusto.
-
----
-
-### 📑 Backlog de Historias de Usuario (Funcionalidades del Sistema)
-
-| ID | Historia de Usuario | Criterios de Aceptación (Definition of Done) | Rol Técnico | Semana |
-|:---|:---|:---|:---|:---|
-| **US01** | **Acceso Principal:** Como visitante, quiero ver la portada de "Mielecita" para identificar la marca. | - [x] Interfaz con branding corregido en Lovable.<br>- [x] Botón "ENTRAR" funcional con redirección. | Scrum Master | 7 |
-| **US02** | **Autenticación:** Como usuario registrado, quiero un login para acceder a mi cuenta de forma segura. | - [x] Validación de credenciales contra tabla `users`.<br>- [x] Manejo de errores para datos incorrectos. | SQL Developer | 7 |
-| **US03** | **Panel de Cliente:** Al ingresar, quiero ver un mensaje de bienvenida para confirmar mi acceso. | - [x] Redirección exitosa tras validación SQL.<br>- [x] Visualización del componente "Bienvenido" dinámico. | Analyst | 8 |
-| **US04** | **Navegación Lateral:** Como cliente, quiero un menú para filtrar productos por categoría rápidamente. | - [x] Menú lateral (25% ancho) con las 5 categorías oficiales.<br>- [x] Botones operativos vinculados a `category_id`. | Analyst | 9 |
-| **#US05** | **Catálogo Masivo:** Como cliente, quiero que el catálogo cargue los productos dinámicamente. | - [x] Carga de 100 registros mediante `02_seed.sql`.<br>- [x] Consultas reactivas que no recargan la página. | Query Master | 10 |
-| **US06** | **Gestión de Compra:** Como cliente, quiero seleccionar un producto y que el sistema valide si hay stock. | - [x] Interacción con botón "Comprar".<br>- [x] Validación de integridad mediante **Trigger** de stock. | SQL Tester / DBA | 11 |
+> **Status:** Deployment Ready  
+> **Target:** [Mielecita Sweet Cart Live](https://mielecita-sweet-cart.lovable.app/)  
+> **Reference Model:** [Olyess Pastelerías](https://olyesspastelerias.com/)
 
 ---
 
-### 🔧 Historias Técnicas y Control de Calidad (Bug Fixes)
+## 🎯 Executive Summary & Objectives
+The **Mielecita** project was conceived to revolutionize a traditional artisanal bakery by implementing a high-performance E-commerce platform. Inspired by the professional standards of **Olyess**, our mission was to bridge the gap between "brick-and-mortar" sales and a "cloud-first" retail experience.
 
-Estas historias fueron creadas por el Scrum Master para resolver los fallos detectados durante las pruebas de estrés.
-
-| ID | Tarea Técnica | Criterio de Aceptación | Resultado del Sprint |
-|:---|:---|:---|:---|
-| **TS01** | **Protección de Inventario** | Implementar lógica de servidor que bloquee ventas con stock 0. | **Solucionado (BUG-01)** |
-| **TS02** | **Validación de Datos (Regex)** | El campo `phone` debe ser estrictamente numérico (10 dígitos). | **Solucionado (BUG-02)** |
-| **TS03** | **Integridad Referencial** | Impedir el borrado de categorías que tengan productos asociados. | **Solucionado (TS-03)** |
-| **TS04** | **Cálculo Financiero** | Crear una **VISTA** para que el total de venta sea exacto y automático. | **Solucionado (BUG-03)** |
+**Key Goals:**
+* **Scalability:** Manage a complex inventory of **100+ gourmet products**.
+* **Security:** Implement industrial-grade authentication and data sanitization.
+* **UX Excellence:** Provide a seamless, responsive interface using **Lovable** and **Tailwind CSS**.
+* **Data Integrity:** Ensure 100% accuracy in stock levels and financial calculations via **PostgreSQL**.
 
 ---
 
-### 📊 Resumen de Esfuerzo por Rol
-
-- **Analyst & Designer:** Tradujo las necesidades del cliente a filtros y vistas visuales.
-- **SQL Developer:** Construyó la estructura que permite que las historias se vuelvan realidad.
-- **DBA & Tester:** Aseguró que los criterios de aceptación de seguridad se cumplieran rigurosamente.
-- **Query Master:** Dio vida a las historias poblando el sistema con datos reales y útiles.
-- **Scrum Master:** Coordinó que cada historia de usuario tuviera su respaldo técnico en SQL.
-## 🛠️ Notas Técnicas para el Desarrollo
-
-> [!TIP]
-> **Arquitectura de Base de Datos**
-> - **Tabla `products`:** Debe contener una columna `category` para filtrar por (Pasteles, Bebidas, Snacks).
-> - **Tabla `users`:** Se recomienda que el campo `password` esté debidamente encriptado.
-
-> [!IMPORTANT]
-> **Diseño de Interfaz (UI)**
-> El layout debe respetar la proporción **1/4 (Menú)** y **3/4 (Contenido)** para mantener la consistencia visual en todas las pantallas de compra.
+## 🛠 Advanced Technical Stack
+* **Prototyping:** Figma (High-fidelity UI/UX design).
+* **Frontend Architecture:** React.js + Vite (Powered by Lovable.app).
+* **Backend & Infrastructure:** Supabase (Cloud-native PostgreSQL).
+* **Server-Side Logic:** PL/pgSQL (Triggers, Functions, and Views).
+* **Security Protocols:** Row Level Security (RLS) & Regex-based Constraints.
 
 ---
-*Documento actualizado al: 2026*
+
+## 📈 Evolutionary Product Backlog (Sprints 1-3)
+
+| ID | Feature Category | User Story Summary | Technical Goal | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **US01** | **Identity** | As a visitor, I want a premium landing page to identify the Mielecita brand. | Deploy responsive banners and high-res product cards. | ✅ |
+| **US02** | **Security** | As a user, I want a secure login to manage my "Sweet Account." | Implement `@gmail.com` filter and **12-character** password salt/hash. | ✅ |
+| **US03** | **Inventory** | As a buyer, I want to browse a catalog of 100+ items with real prices. | Bulk-load via `02_seed.sql` and synchronize with Supabase. | ✅ |
+| **US04** | **UX/UI** | As a buyer, I want to filter by 5 categories (Cakes, Drinks, etc.). | Dynamic SQL queries using `WHERE category_id` filters. | ✅ |
+| **US05** | **Integrity** | As an owner, I want to prevent sales of out-of-stock products. | Real-time **SQL Triggers** to block `INSERT` on zero stock. | ✅ |
+| **US06** | **Reporting** | As an admin, I want to see financial totals without errors. | Create **Database Views** for automated price/tax calculation. | ✅ |
+
+---
+
+## 📝 Comprehensive User Stories (In-Depth Analysis)
+
+### 1. The Secure Authentication Experience (US02)
+* **User Statement:** "As a frequent customer, I want to register using a robust password and a verified Gmail account."
+* **Business Requirement:** Ensure all users follow modern security standards to protect the customer database.
+* **Acceptance Criteria:**
+    * Passwords must be at least **12 characters** long.
+    * Email inputs must match the `@gmail.com` domain regex.
+* **Technical Outcome:** Implemented `CHECK` constraints in the `users` table to enforce data sanitization before the information reaches the backend.
+
+### 2. The Dynamic Catalog & Sidebar Navigation (US04)
+* **User Statement:** "As a user looking for a specific dessert, I want a categorized sidebar to find my favorite cake instantly."
+* **Business Requirement:** Mimic the professional navigation of **Olyess** where 25% of the UI handles filters and 75% displays results.
+* **Acceptance Criteria:**
+    * Sidebar buttons for: Pastries, Drinks, Snacks, Gelatins, and Ice Cream.
+    * Instant grid updates without page reloads (Virtual DOM).
+* **Technical Outcome:** Successfully mapped SQL `category_id` to React state, allowing real-time catalog updates as the user interacts with the sidebar.
+
+### 3. Inventory Protection & Business Rules (US05)
+* **User Statement:** "As a customer, I want to be certain that if I buy a 'Pastel Carlos V', it is actually in stock."
+* **Business Requirement:** Zero-tolerance policy for stock discrepancies.
+* **Acceptance Criteria:**
+    * If `inventory.stock` reaches 0, the "Buy" button is disabled.
+    * Server-side validation must block transactions even if the UI is bypassed.
+* **Technical Outcome:** Developed a **PostgreSQL Trigger** that monitors the `sales_details` table, ensuring the "Sweet Cart" never processes an invalid order.
+
+---
+
+## 🚀 Final Project Impact
+By combining the visual elegance of **Figma**, the agility of **Lovable**, and the industrial power of **PostgreSQL**, **Mielecita** stands as a "Perfect" E-commerce prototype. It handles complex data relationships (1:N), enforces strict security, and provides a user experience that rivals professional Mexican pastry websites like **Olyess**.
+
+---
+*Documented by the Scrum Master - Mielecita Team 2026*
