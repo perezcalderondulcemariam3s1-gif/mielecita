@@ -1,33 +1,24 @@
-# 🍰 Mielecita - Pastry Management System
 
-
+# 🍰 Mielecita - Pastry Management System 🚀
 
 <p align="center">
-
-  <img src="https://img.shields.io/badge/Status-Finalized-green?style=for-the-badge" alt="Status">
-
-  <img src="https://img.shields.io/badge/Semester-Project-blue?style=for-the-badge" alt="Semester">
-
-  <img src="https://img.shields.io/badge/Tech-PostgreSQL%20|%20Lovable-orange?style=for-the-badge" alt="Tech">
-
+  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build Status">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
 </p>
 
+> **Elevator Pitch:** Mielecita is a high-performance e-commerce ecosystem designed to digitize artisanal pastry operations, featuring automated inventory control, secure Gmail-only authentication, and a real-time catalog of 100+ gourmet products.
 
+---
 
 ## 📖 About the Project
 
 **Mielecita** is a comprehensive technology solution designed to digitize and optimize the operations of an artisanal pastry shop. The system transforms manual logs into an automated data management environment, allowing precise control over inventory, sales, and information security.
-
-
-
 With a real-world catalog of **100 products**, the project integrates a robust cloud database with an intelligent interface, ensuring that every cake, drink, or snack is always accounted for.
 
 
 
 ---
-
-
-
 ## 👥 Scrum Team Members
 
 * **Scrum Master:** Perez Calderon Dulce Maria
@@ -43,78 +34,6 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 * **SQL Tester:** Pozos Urbina Jesus Leonardo
 
 
-
----
-
-
-## 📂 Repository Structure
-
-* 📂 **`src/`**: Core DDL/DML scripts.
-
-    * `01_schema.sql`: Table definitions and constraints.
-
-    * `02_seed.sql`: 100 products bulk insert.
-
-    * `05_bug_fixes.sql`: Security Triggers and Financial Views.
-
-* 📂 **`queries/`**: Business Intelligence reports and advanced filters.
-
-* 📂 **`tests/`**: Stress tests, security cases, and Bug Reports.
-
-
-
----
-
-
-
-## 🛠️ Technology Stack
-
-* **Design:** Figma (UI/UX Prototyping).
-
-* **Database:** PostgreSQL via **Supabase Cloud**.
-
-* **Frontend:** **Lovable.dev** (AI-driven SQL integration).
-
-* **Methodology:** Agile / Scrum.
-
-
-
----
-
-
-
-## 🚀 Technical Achievements
-
-1. **Zero-Stock Prevention:** SQL Triggers developed to maintain inventory accuracy.
-
-2. **Data Sanitization:** Regex-based constraints for phone and email validation.
-
-3. **Financial Transparency:** Automated calculation of totals via SQL Views to avoid rounding errors.
-
-4. **Scalability:** Optimized 3rd Normal Form (3NF) architecture.
-
-
-
----
-
-<p align="center">
-
-  Made with ❤️ by the Mielecita Team - 2026
-
-</p>
-
-
-# 🍰 Mielecita - Pastry Management System 🚀
-
-<p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build Status">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
-</p>
-
-> **Elevator Pitch:** Mielecita is a high-performance e-commerce ecosystem designed to digitize artisanal pastry operations, featuring automated inventory control, secure Gmail-only authentication, and a real-time catalog of 100+ gourmet products.
-
----
 
 ## 📖 Table of Contents
 * [Getting Started](#-getting-started)
@@ -176,6 +95,59 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 *Focus: Data integrity, advanced validation, and maintenance.*
 
 * [x] **US-P3-01:** **Email Validation:** Restrict access to `@gmail.com` domains only.
+
+## 📂 Repository Structure
+
+* 📂 **`src/`**: Core DDL/DML scripts.
+
+    * `01_schema.sql`: Table definitions and constraints.
+
+    * `02_seed.sql`: 100 products bulk insert.
+
+    * `05_bug_fixes.sql`: Security Triggers and Financial Views.
+
+* 📂 **`queries/`**: Business Intelligence reports and advanced filters.
+
+* 📂 **`tests/`**: Stress tests, security cases, and Bug Reports.
+
+
+
+## 🛠️ Technology Stack
+
+* **Design:** Figma (UI/UX Prototyping).
+
+* **Database:** PostgreSQL via **Supabase Cloud**.
+
+* **Frontend:** **Lovable.dev** (AI-driven SQL integration).
+
+* **Methodology:** Agile / Scrum.
+
+
+
+---
+
+
+
+## 🚀 Technical Achievements
+
+1. **Zero-Stock Prevention:** SQL Triggers developed to maintain inventory accuracy.
+
+2. **Data Sanitization:** Regex-based constraints for phone and email validation.
+
+3. **Financial Transparency:** Automated calculation of totals via SQL Views to avoid rounding errors.
+
+4. **Scalability:** Optimized 3rd Normal Form (3NF) architecture.
+
+
+
+---
+
+<p align="center">
+
+  Made with ❤️ by the Mielecita Team - 2026
+
+</p>
+
 
 1. **Clone the repository:**
 ```bash
