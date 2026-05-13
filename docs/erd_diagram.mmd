@@ -1,102 +1,152 @@
 erDiagram
-    users ||--o| customers : "is"
-    users ||--o| employees : "is"
-    categories ||--o{ products : "contains"
-    products ||--o{ sales_details : "included_in"
-    sales ||--o{ sales_details : "has"
-    customers ||--o{ sales : "buys"
-    employees ||--o{ sales : "processes"
-    products ||--o{ inventory : "registered_in"
-    suppliers ||--o{ ingredient_purchases : "supplies"
-    customers ||--o{ orders : "places"
-    orders ||--o{ order_details : "includes"
+    %% --- RELATIONSHIPS ---
+    USERS ||--o| CUSTOMERS : "is"
+    USERS ||--o| EMPLOYEES : "is"
+    CATEGORIES ||--o{ PRODUCTS : "contains"
+    PRODUCTS ||--o{ SALES_DETAILS : "included_in"
+    SALES ||--o{ SALES_DETAILS : "has"
+    CUSTOMERS ||--o{ SALES : "buys"
+    EMPLOYEES ||--o{ SALES : "processes"
+    PRODUCTS ||--o{ INVENTORY : "registered_in"
+    
+    %% Branch Relationships
+    BRANCHES ||--o{ INVENTORY : "manages"
+    BRANCHES ||--o{ SALES : "originates_at"
+    
+    %% Production & Recipes
+    PRODUCTS ||--o{ RECIPES : "requires"
+    INGREDIENTS ||--o{ RECIPES : "used_in"
+    
+    %% Purchasing & Suppliers
+    SUPPLIERS ||--o{ INGREDIENT_PURCHASES : "supplies"
+    INGREDIENTS ||--o{ INGREDIENT_PURCHASES : "bought"
 
-    users {
+    %% Orders & Tracking
+    CUSTOMERS ||--o{ ORDERS : "places"
+    ORDERS ||--o{ ORDER_DETAILS : "includes"
+    PRODUCTS ||--o{ ORDER_DETAILS : "part_of"
+
+    %% Marketing & Feedback
+    PRODUCTS ||--o{ PRODUCT_REVIEWS : "receives"
+    CUSTOMERS ||--o{ PRODUCT_REVIEWS : "writes"
+    PROMOTIONS ||--o{ SALES : "applied_to"
+
+    %% --- DETAILED ENTITIES ---
+
+    USERS {
         int user_id PK
         string username
-        string email
-        string password
-        string role
+        string email "Must be @gmail.com"
+        string password "Min 12 chars"
+        string role "Admin, Employee, Client"
+        boolean is_active
     }
 
-    customers {
+    CUSTOMERS {
         int customer_id PK
         int user_id FK
         string phone
         string address
+        date birth_date
     }
 
-    employees {
+    EMPLOYEES {
         int employee_id PK
         int user_id FK
+        int branch_id FK
         string position
+        decimal salary
         date hire_date
     }
 
-    products {
+    BRANCHES {
+        int branch_id PK
+        string name
+        string location
+        string phone
+    }
+
+    PRODUCTS {
         int product_id PK
         int category_id FK
         string name
         string description
         decimal price
+        string image_url
+        string servings "e.g. 10-15 people"
     }
 
-    inventory {
+    INGREDIENTS {
+        int ingredient_id PK
+        string name
+        string unit_measure "kg, lt, pza"
+        decimal current_cost
+    }
+
+    RECIPES {
+        int recipe_id PK
+        int product_id FK
+        int ingredient_id FK
+        decimal quantity_required
+    }
+
+    INVENTORY {
         int inventory_id PK
-        int product_id FK "unique"
+        int product_id FK
+        int branch_id FK
         int stock
         int min_stock
     }
 
-    sales {
+    SALES {
         int sale_id PK
         int customer_id FK
         int employee_id FK
+        int branch_id FK
+        int promotion_id FK
         datetime sale_date
         decimal total_amount
         string payment_type
     }
 
-    sales_details {
+    SALES_DETAILS {
         int sale_detail_id PK
         int sale_id FK
         int product_id FK
         int quantity
         decimal unit_price
+        decimal subtotal
     }
 
-    categories {
-        int category_id PK
-        string name
-    }
-
-    orders {
-        int order_id PK
-        int customer_id FK
-        datetime order_date
-        string status
-        decimal estimated_total
-    }
-
-    order_details {
-        int order_detail_id PK
-        int order_id FK
-        int product_id FK
-        int quantity
-    }
-
-    suppliers {
+    SUPPLIERS {
         int supplier_id PK
         string name
+        string tax_id "RFC"
         string contact_phone
-        string email
     }
 
-    ingredient_purchases {
+    INGREDIENT_PURCHASES {
         int purchase_id PK
         int supplier_id FK
-        string ingredient_name
-        decimal cost
+        int ingredient_id FK
+        decimal cost_per_unit
         int quantity
         datetime purchase_date
+    }
+
+    PRODUCT_REVIEWS {
+        int review_id PK
+        int product_id FK
+        int customer_id FK
+        int rating "1-5 stars"
+        string comment
+        date review_date
+    }
+
+    PROMOTIONS {
+        int promotion_id PK
+        string name
+        decimal discount_percentage
+        date start_date
+        date end_date
     }
