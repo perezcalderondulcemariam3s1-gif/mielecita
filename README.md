@@ -45,7 +45,30 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 
 
 ---
+## 📖 Table of Contents
+* [Getting Started](#-getting-started)
+* [Usage Examples](#-usage-examples)
+* [Architecture & Tech Stack](#-architecture--tech-stack)
+* [Product Backlog Evolution](#-product-backlog-evolution)
+* [Running Tests](#-running-tests)
+* [License](#-license)
+## ⚡ Getting Started
 
+### Prerequisites
+* Git
+* Supabase Account
+* Modern Web Browser
+
+### Installation
+1. Clone the repository:
+\`\`\`bash
+git clone https://github.com/PerezDulce/mielecita-pastry-system.git
+\`\`\`
+
+2. Navigate to the project directory:
+\`\`\`bash
+cd mielecita-pastry-system
+\`\`\`
 
 
 ## 📈 Product Backlog Evolution
