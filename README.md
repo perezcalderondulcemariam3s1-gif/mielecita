@@ -236,6 +236,7 @@ VALUES ('mielecita@gmail.com', '20070224miel');
   Made with ❤️ by the Mielecita Team - 2026
 
 </p>
+---
 ## 📄 License
 
 Distributed under the **MIT License**. This license allows others to use, copy, modify, merge, and even sell the software, as long as they include the original copyright notice and this permission notice.
