@@ -228,6 +228,14 @@ Verify that the system rejects any attempt to create a user with a password shor
 INSERT INTO auth.users (@gmail.com, password) 
 VALUES ('mielecita@gmail.com', '20070224miel');
 
+<p align="center">
+  Made with ❤️ by the Mielecita Team - 2026
+</p>
+<p align="center">
+
+  Made with ❤️ by the Mielecita Team - 2026
+
+</p>
 ## 📄 License
 
 Distributed under the **MIT License**. This license allows others to use, copy, modify, merge, and even sell the software, as long as they include the original copyright notice and this permission notice.
@@ -235,11 +243,3 @@ Distributed under the **MIT License**. This license allows others to use, copy, 
 For more information, please see the `LICENSE` file included in this repository.
 
 ---
-<p align="center">
-  Made with ❤️ by the Mielecita Team - 2026
-</p>
-<p align="center">
-
-  Made with ❤️ by the Mielecita Team - 2026
-
-</p>
