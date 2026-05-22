@@ -191,7 +191,29 @@ The Mielecita system is designed for a seamless experience between the gourmet c
 # Internal logic example: How the system validates stock before a sale
 SELECT check_inventory_and_process_sale(product_id, quantity_requested);
 \`\`\`
+## 🏛️ Architecture & Tech Stack
 
+The **Mielecita** system follows a **Decoupled Client-Server Architecture**, which ensures that the user interface (Frontend) and the data management (Backend) operate independently but communicate seamlessly via API.
+
+### 🏗️ Architectural Pattern
+* **Database-First Logic:** The core business rules (security, inventory control) are handled directly in the database using PostgreSQL triggers and constraints.
+* **Cloud Integration:** Real-time data synchronization between **Supabase** and the **Lovable** interface.
+* **Security Layer:** Row Level Security (RLS) and custom SQL functions to protect user data.
+
+### 🛠️ Technology Stack
+* **Core Language:** SQL (PostgreSQL / PL-pgSQL) for all business logic.
+* **Frontend Framework:** React + Vite (Automated and optimized by **Lovable.dev**).
+* **Database Engine:** **Supabase Cloud**, providing a robust PostgreSQL environment.
+* **UI/UX Design:** **Figma**, used for the initial high-fidelity prototyping.
+* **Authentication:** Integrated OAuth and custom logic for domain restriction (@gmail.com).
+
+\`\`\`sql
+-- Example of the decoupled logic: 
+-- A trigger handles stock validation independently of the frontend UI.
+CREATE TRIGGER trg_check_stock
+BEFORE INSERT ON sales_details
+FOR EACH ROW EXECUTE FUNCTION validate_inventory();
+\`\`\`
 <p align="center">
 
   Made with ❤️ by the Mielecita Team - 2026
