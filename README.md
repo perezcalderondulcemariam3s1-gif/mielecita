@@ -165,6 +165,24 @@ cd mielecita-pastry-system
         * **When** the browser loads the dynamic link.
         * **Then** it must open the synchronized catalog ready to add products to the cart.
 ---
+# 📂 Software Requirements Specification (SRS) - Mielecita
+
+This document defines the formal requirements for the Mielecita system, ensuring both business logic and technical constraints are met.
+
+## 1. Functional Requirements (FR)
+These requirements define the specific behaviors and functions the system must provide.
+
+1. **FR-01: Domain Validation:** The system shall restrict new account registrations to `@gmail.com` domains only.
+2. **FR-02: Stock Control:** The database shall implement SQL Triggers to block sale transactions when the product quantity reaches zero.
+3. **FR-03: Smart Access:** The system shall provide administrative access via secure, time-sensitive token links instead of traditional login for staff.
+4. **FR-04: Content Filter:** The registration module shall block inappropriate or obscene usernames using a predefined blacklist.
+
+## 2. Non-Functional Requirements (NFR)
+These requirements specify the quality attributes and constraints of the system.
+
+1. **NFR-01: Data Security:** Mandatory minimum password complexity of at least 12 characters for all user roles.
+2. **NFR-02: User Feedback:** The UI shall provide immediate, descriptive feedback for authentication errors (e.g., "Incorrect password").
+3. **NFR-03: Availability & Performance:** The system shall ensure real-time data synchronization between the Staff Portal and the Customer View with a latency of less than 2 seconds.
 
 
 
