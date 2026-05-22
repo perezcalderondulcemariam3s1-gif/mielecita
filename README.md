@@ -26,6 +26,11 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 
 ---
 
+## 🎯 Product Goal
+Transformar la gestión operativa de la pastelería **Mielecita** mediante un ecosistema digital integrado que garantice la seguridad de los datos, la sincronización en tiempo real entre el personal y los clientes, y una experiencia de compra sin fricciones a través de tecnología táctica y accesible.
+
+---
+
 
 
 ## 👥 Scrum Team Members
@@ -52,6 +57,7 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 * [Product Backlog Evolution](#-product-backlog-evolution)
 * [Running Tests](#-running-tests)
 * [License](#-license)
+* [User stories & aception criterio](#-User-Stories-&-Acceptance-Criteria-(Gherkin))
 ## ⚡ Getting Started
 
 ### Prerequisites
@@ -100,6 +106,21 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 * [x] **US-P3-04: Smart Link Personal Access:** Replaced traditional login flows for staff with **Direct Personal Access Links**, streamlining the administrative entry process.
 * [x] **US-P3-05: QR Order Integration:** Generated dynamic **QR Codes** that embed direct links to the ordering system, reducing friction between the physical menu and the digital cart.
 * [x] **US-P3-06: Inventory Guard (Triggers):** Deployment of PL/pgSQL triggers to automatically block sales and notify the staff when stock levels reach zero.
+
+---
+## 🏛️ Product Backlog & Epics
+
+### **Fase 1: Prototipado y Diseño Visual (Figma)**
+* **Épica:** E01 - Identidad Visual y Experiencia de Usuario.
+* **Objetivo:** Establecer la base estética y el flujo de navegación antes de la implementación técnica para asegurar la aceptación del cliente.
+
+### **Fase 2: Infraestructura y Conectividad (Lovable & Supabase)**
+* **Épica:** E02 - Arquitectura de Datos y Catálogo Funcional.
+* **Objetivo:** Migrar el diseño a una aplicación viva conectada a una base de datos segura, superando desafíos de infraestructura externa.
+
+### **Fase 3: Seguridad y Automatización de Negocio (Final Refinement)**
+* **Épica:** E03 - Blindaje de Datos y Sincronización Omnicanal.
+* **Objetivo:** Implementar reglas de negocio avanzadas (validación de contraseñas, correos y stock) y optimizar el acceso del personal mediante links inteligentes y códigos QR.
 
 ---
 
@@ -205,6 +226,62 @@ Distributed under the **MIT License**. This license allows others to use, copy, 
 For more information, please see the `LICENSE` file included in this repository.
 
 ---
+# 📋 User Stories & Acceptance Criteria (Gherkin)
+
+Este documento detalla las historias de usuario y los criterios de aceptación técnicos para el sistema **Mielecita**.
+
+---
+
+### **US-01: Sincronización en Tiempo Real (Personal/Cliente)**
+**Como** Administrador de Mielecita,  
+**quiero** que los cambios realizados en el portal de personal se reflejen instantáneamente en la vista del cliente,  
+**para** evitar que se vendan productos con precios desactualizados.
+
+* **Escenario: Actualización de precio exitosa**
+    * **Given** que el administrador está en el portal de personal.
+    * **And** modifica el precio de un "Pastel de Chocolate" de $200 a $250.
+    * **When** el administrador guarda el cambio.
+    * **Then** el sistema debe actualizar la base de datos central en Supabase.
+    * **And** un cliente que esté viendo el catálogo debe ver el precio de $250 sin necesidad de refrescar la página.
+
+---
+
+### **US-02: Acceso Directo por Link (Staff)**
+**Como** Personal Administrativo,  
+**quiero** entrar al sistema mediante un link personal directo,  
+**para** ahorrar tiempo en el proceso de logueo diario.
+
+* **Escenario: Acceso mediante token de seguridad**
+    * **Given** que el administrador recibe su link de acceso personal.
+    * **When** el administrador hace clic en el link desde un dispositivo autorizado.
+    * **Then** el sistema debe validar el token de seguridad del link.
+    * **And** debe redirigir al usuario directamente al panel de administración sin pedir credenciales.
+
+---
+
+### **US-03: Integración de Pedidos por QR**
+**Como** Cliente en la tienda física,  
+**quiero** escanear un código QR para acceder directamente al carrito de compras,  
+**para** realizar mi pedido de forma rápida desde mi celular.
+
+* **Escenario: Escaneo de código en mostrador**
+    * **Given** que el cliente tiene un dispositivo móvil con cámara.
+    * **When** el cliente escanea el código QR ubicado en el mostrador.
+    * **Then** el navegador del móvil debe abrir la URL específica del catálogo de Mielecita.
+    * **And** debe cargar el catálogo listo para añadir productos al carrito.
+
+---
+
+### **US-04: Validación de Seguridad (Password & Email)**
+**Como** Sistema de Seguridad,  
+**quiero** validar que las contraseñas tengan 12 caracteres y los correos sean @gmail.com,  
+**para** proteger la plataforma de accesos no autorizados.
+
+* **Escenario: Intento de registro con datos inválidos**
+    * **Given** que un usuario intenta registrarse.
+    * **When** ingresa una contraseña de 8 caracteres o un correo de dominio @outlook.com.
+    * **Then** el sistema debe denegar el registro y mostrar un mensaje de error: "La contraseña debe tener 12 caracteres y el correo debe ser @gmail.com".
+ ---
 ## 🧪 Running Tests
 
 Explain how to execute the automated test suites to ensure system integrity and business rule compliance.
