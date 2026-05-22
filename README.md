@@ -214,6 +214,13 @@ CREATE TRIGGER trg_check_stock
 BEFORE INSERT ON sales_details
 FOR EACH ROW EXECUTE FUNCTION validate_inventory();
 \`\`\`
+## 📄 License
+
+Distributed under the **MIT License**. This license allows others to use, copy, modify, merge, and even sell the software, as long as they include the original copyright notice and this permission notice.
+
+For more information, please see the `LICENSE` file included in this repository.
+
+---
 ## 🧪 Running Tests
 
 Explain how to execute the automated test suites to ensure system integrity and business rule compliance.
@@ -236,11 +243,4 @@ VALUES ('mielecita@gmail.com', '20070224miel');
   Made with ❤️ by the Mielecita Team - 2026
 
 </p>
----
-## 📄 License
-
-Distributed under the **MIT License**. This license allows others to use, copy, modify, merge, and even sell the software, as long as they include the original copyright notice and this permission notice.
-
-For more information, please see the `LICENSE` file included in this repository.
-
 ---
