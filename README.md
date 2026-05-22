@@ -30,6 +30,7 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 Transformar la gestión operativa de la pastelería **Mielecita** mediante un ecosistema digital integrado que garantice la seguridad de los datos, la sincronización en tiempo real entre el personal y los clientes, y una experiencia de compra sin fricciones a través de tecnología táctica y accesible.
 
 ---
+Application link
 https://mielecita-sweet-cart.lovable.app/
 
 
