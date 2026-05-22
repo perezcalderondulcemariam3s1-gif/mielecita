@@ -214,6 +214,19 @@ CREATE TRIGGER trg_check_stock
 BEFORE INSERT ON sales_details
 FOR EACH ROW EXECUTE FUNCTION validate_inventory();
 \`\`\`
+## 🧪 Running Tests
+
+Explain how to execute the automated test suites to ensure system integrity and business rule compliance.
+
+### 🛡️ SQL Security & Logic Tests
+To verify that the database constraints and triggers are working correctly, execute the test scripts located in `/tests/test_cases.sql` directly in the **Supabase SQL Editor**.
+
+#### 1. Password Strength Test
+Verify that the system rejects any attempt to create a user with a password shorter than 12 characters (Requirement US-P3-02).
+```sql
+-- This should FAIL due to CHECK constraint
+INSERT INTO auth.users (@gmail.com, password) 
+VALUES ('mielecita@gmail.com', '20070224miel');
 <p align="center">
 
   Made with ❤️ by the Mielecita Team - 2026
