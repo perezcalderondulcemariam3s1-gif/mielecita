@@ -110,18 +110,92 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 ---
 ## 🏛️ Product Backlog & Epics
 
-### **Fase 1: Prototipado y Diseño Visual (Figma)**
-* **Épica:** E01 - Identidad Visual y Experiencia de Usuario.
-* **Objetivo:** Establecer la base estética y el flujo de navegación antes de la implementación técnica para asegurar la aceptación del cliente.
+# 🍰 Product Backlog 01: Design & Prototyping
+**Product Goal:** Establish the visual and navigational foundation of the Mielecita system to ensure functionality and user flow before technical implementation.
 
-### **Fase 2: Infraestructura y Conectividad (Lovable & Supabase)**
-* **Épica:** E02 - Arquitectura de Datos y Catálogo Funcional.
-* **Objetivo:** Migrar el diseño a una aplicación viva conectada a una base de datos segura, superando desafíos de infraestructura externa.
+## 🏛️ Epic: E01 - Visual Identity & User Experience
+**Goal:** Define the gourmet brand aesthetics and the end-to-end customer purchase journey.
 
-### **Fase 3: Seguridad y Automatización de Negocio (Final Refinement)**
-* **Épica:** E03 - Blindaje de Datos y Sincronización Omnicanal.
-* **Objetivo:** Implementar reglas de negocio avanzadas (validación de contraseñas, correos y stock) y optimizar el acceso del personal mediante links inteligentes y códigos QR.
+### 📋 User Story: Interactive UI Design
+**As a** UI/UX Designer,
+**I want to** create high-fidelity prototypes in Figma,
+**so that** the team can validate the navigation flow without development costs.
 
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Catalog Navigation (Happy Path)**
+        * **Given** the user accesses the Mielecita Figma prototype.
+        * **When** they select a pastry category.
+        * **Then** the system must display the corresponding products with price and stock.
+    * **Scenario: Strategic Pivot due to Budget Constraints**
+        * **Given** the design is completed in Figma.
+        * **When** the platform requests a $18 USD payment to continue.
+        * **Then** the Scrum Master must order the migration to Lovable to avoid unplanned costs.
+
+# 🍰 Product Backlog 02: Infrastructure & Data
+**Product Goal:** Build a secure and functional database environment that prevents external vulnerabilities detected in previous stages.
+
+## 🏛️ Epic: E02 - Data Architecture & Secure Connectivity
+**Goal:** Implement the relational backend within the Lovable ecosystem.
+
+### 📋 User Story: Inventory Management in Database
+**As a** SQL Developer,
+**I want to** connect the tables to the internal Lovable Supabase,
+**so that** information is protected against external project theft attempts.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Bulk Loading of 100 Products (Happy Path)**
+        * **Given** the SQL seed script is ready.
+        * **When** it is executed in the Supabase editor.
+        * **Then** the tables must display the 100 records with their complete attributes.
+    * **Scenario: Blocking External Connection for Security**
+        * **Given** an attempt to connect via DataGrip or external tools.
+        * **When** the system detects the connection request.
+        * **Then** it must deny access to protect the code from theft, allowing only the use of native Lovable Supabase.
+
+# 🍰 Product Backlog 03: Business Rules & Final Enhancements
+**Product Goal:** Shield system security and optimize staff and customer access through smart technologies.
+
+## 🏛️ Epic: E03 - Critical Security & Automation
+**Goal:** Implement strict validations and real-time synchronization.
+
+### 📋 User Story: Credential Security & Access
+**As a** Security Administrator,
+**I want to** strictly validate registration data,
+**so that** only authorized personnel and valid emails access the system.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Registration with Gmail (Happy Path)**
+        * **Given** a user enters an email with the @gmail.com domain.
+        * **And** a password of 12 or more characters.
+        * **When** they press the register button.
+        * **Then** the system creates the account successfully.
+    * **Scenario: Short Password Validation**
+        * **Given** the user enters an 8-character password.
+        * **When** they attempt to register.
+        * **Then** the system must display the message: "Error: Less than 12 characters are not allowed".
+    * **Scenario: Incorrect Password on Login**
+        * **Given** a registered user attempts to log in.
+        * **When** they enter a non-matching password.
+        * **Then** the system must trigger the message: "Incorrect password".
+    * **Scenario: Duplicate Email Validation**
+        * **Given** a user attempts to register with an existing email.
+        * **When** the system processes the request.
+        * **Then** it must block the registration and show: "This email account is already linked to an active user".
+
+### 📋 User Story: Real-Time Sync & QR Integration
+**As** Mielecita Staff,
+**I want** my changes in the staff portal to sync via link and QR,
+**so that** the customer always sees real-time availability.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Personal Link Access**
+        * **Given** the staff uses their direct access link.
+        * **When** they enter the staff portal.
+        * **Then** they can modify stock without traditional login.
+    * **Scenario: Functional QR Ordering**
+        * **Given** a customer scanning the QR in-store.
+        * **When** the browser loads the dynamic link.
+        * **Then** it must open the synchronized catalog ready to add products to the cart.
 ---
 
 
