@@ -170,6 +170,27 @@ As **Scrum Master**, I managed the progression of requirements across three key 
 
 
 ---
+## 💻 Usage Examples
+
+The Mielecita system is designed for a seamless experience between the gourmet catalog and administrative control.
+
+### 🛍️ Customer Experience
+1. **Browse Catalog:** Users can explore over 100 products categorized by Pastries, Drinks, Snacks, Gelatins, and Ice Cream.
+2. **Dynamic Filtering:** Use the sidebar to filter products in real-time.
+3. **Secure Checkout:** To purchase, users must log in with a valid `@gmail.com` account and a password of at least 12 characters.
+
+### ⚙️ Administrative Control
+* **Inventory Management:** When a product's stock reaches **0**, the system automatically hides the "Buy" button and blocks the transaction via SQL Triggers.
+* **Data Integrity:** All prices and totals are calculated server-side to ensure financial accuracy.
+
+### 🖼️ Interface Preview
+> **Note:** Here you can include a link to your live demo or screenshots of your Lovable interface.
+* **Live App:** [Mielecita Sweet Cart](https://mielecita-sweet-cart.lovable.app/)
+
+\`\`\`bash
+# Internal logic example: How the system validates stock before a sale
+SELECT check_inventory_and_process_sale(product_id, quantity_requested);
+\`\`\`
 
 <p align="center">
 
