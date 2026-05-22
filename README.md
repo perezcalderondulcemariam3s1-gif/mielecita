@@ -78,38 +78,6 @@ cd mielecita-pastry-system
 
 
 ## 📈 Product Backlog Evolution
-
-As **Scrum Master**, I managed the progression of requirements across three key academic phases:
-
-
-
-### 🎨 Phase 1: Design Pivot (The Figma Challenge)
-*Focus: UI/UX Discovery and Platform Transition.*
-* [x] **US-P1-01:** Definición de identidad visual y branding de "Mielecita".
-* [x] **US-P1-02:** Diseño de prototipos de alta fidelidad en Figma.
-* [x] **US-P1-03: Strategic Pivot:** Ante el costo imprevisto de $18 USD para finalizar la exportación en Figma, el equipo decidió migrar a una plataforma más eficiente para el desarrollo ágil, evitando gastos operativos innecesarios.
-
-### 🔌 Phase 2: Secure Implementation (The Lovable-Supabase Migration)
-*Focus: Backend Security and Infrastructure.*
-* [x] **US-P2-01:** Migración del diseño visual a componentes vivos en **Lovable**.
-* [x] **US-P2-02: Security Response:** Tras detectar una vulnerabilidad de seguridad (intento de robo de proyecto) al intentar conectar con Supabase externo y DataGrip, se tomó la decisión técnica de utilizar el **Supabase interno de Lovable**.
-* [x] **US-P2-03: Database Architecture:** Implementación de la base de datos directamente en el ecosistema de Lovable, organizando la información en tablas relacionales seguras y optimizadas por IA.
-* [x] **US-P2-04:** Carga masiva de **100 productos reales** para el catálogo.
-
-
-### 🔐 Phase 3: Advanced Integration & Business Logic (Final Refinement)
-*Focus: Full-stack synchronization, QR access protocols, and automated maintenance.*
-
-* [x] **US-P3-01: Restricted Domain Access:** Enforced backend validation to allow only `@gmail.com` accounts, ensuring a standardized user base.
-* [x] **US-P3-02: Advanced Password Security:** Implementation of a 12-character minimum constraint to prevent brute-force attacks.
-* [x] **US-P3-03: Real-Time Sync (Staff vs. Client):** Engineered a synchronized database architecture where any modification made in the **Staff Portal** (price updates, descriptions, availability) reflects instantly on the **Client Interface** via Supabase Realtime.
-* [x] **US-P3-04: Smart Link Personal Access:** Replaced traditional login flows for staff with **Direct Personal Access Links**, streamlining the administrative entry process.
-* [x] **US-P3-05: QR Order Integration:** Generated dynamic **QR Codes** that embed direct links to the ordering system, reducing friction between the physical menu and the digital cart.
-* [x] **US-P3-06: Inventory Guard (Triggers):** Deployment of PL/pgSQL triggers to automatically block sales and notify the staff when stock levels reach zero.
-
----
-## 🏛️ Product Backlog & Epics
-
 # 🍰 Product Backlog 01: Design & Prototyping
 **Product Goal:** Establish the visual and navigational foundation of the Mielecita system to ensure functionality and user flow before technical implementation.
 
