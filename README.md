@@ -123,48 +123,46 @@ cd mielecita-pastry-system
 # 🍰 Product Backlog 03: Business Rules & Final Enhancements
 **Product Goal:** Shield system security and optimize staff and customer access through smart technologies.
 
-## 🏛️ Epic: E03 - Critical Security & Automation
-**Goal:** Implement strict validations and real-time synchronization.
+### 🏛️ Epic: E03 - Critical Security, DBA Power & Automation
+**Goal:** Implement strict validations, real-time synchronization, and data intelligence through advanced DBA practices.
 
-### 📋 User Story: Credential Security & Access
-**As a** Security Administrator,
-**I want to** strictly validate registration data,
-**so that** only authorized personnel and valid emails access the system.
+### 📋 User Story: Credential Security & Access (Existing)
+*(Aquí mantienes los escenarios de Gmail, Password de 12 caracteres y Duplicidad que ya tenías)*
 
-* **Acceptance Criteria (Gherkin):**
-    * **Scenario: Registration with Gmail (Happy Path)**
-        * **Given** a user enters an email with the @gmail.com domain.
-        * **And** a password of 12 or more characters.
-        * **When** they press the register button.
-        * **Then** the system creates the account successfully.
-    * **Scenario: Short Password Validation**
-        * **Given** the user enters an 8-character password.
-        * **When** they attempt to register.
-        * **Then** the system must display the message: "Error: Less than 12 characters are not allowed".
-    * **Scenario: Incorrect Password on Login**
-        * **Given** a registered user attempts to log in.
-        * **When** they enter a non-matching password.
-        * **Then** the system must trigger the message: "Incorrect password".
-    * **Scenario: Duplicate Email Validation**
-        * **Given** a user attempts to register with an existing email.
-        * **When** the system processes the request.
-        * **Then** it must block the registration and show: "This email account is already linked to an active user".
+### 📋 User Story: Real-Time Sync & QR Integration (Existing)
+*(Aquí mantienes los escenarios de Personal Link y QR functional que ya tenías)*
 
-### 📋 User Story: Real-Time Sync & QR Integration
-**As** Mielecita Staff,
-**I want** my changes in the staff portal to sync via link and QR,
-**so that** the customer always sees real-time availability.
-
-* **Acceptance Criteria (Gherkin):**
-    * **Scenario: Personal Link Access**
-        * **Given** the staff uses their direct access link.
-        * **When** they enter the staff portal.
-        * **Then** they can modify stock without traditional login.
-    * **Scenario: Functional QR Ordering**
-        * **Given** a customer scanning the QR in-store.
-        * **When** the browser loads the dynamic link.
-        * **Then** it must open the synchronized catalog ready to add products to the cart.
 ---
+
+### 📋 NEW User Story: Data Intelligence & Reporting (Syllabus Week 13-14)
+**As a** Business Owner,
+**I want to** generate advanced reports using Joins and Aggregates,
+**so that** I can identify top-selling products and total revenue.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Generating Sales Report (Happy Path)**
+        * **Given** the database contains sales and product tables.
+        * **When** I execute a query using **INNER JOIN** between sales and products.
+        * **Then** the system must return a list showing product names, quantities, and total income per sale.
+    * **Scenario: Identifying Best Sellers**
+        * **Given** the sales history.
+        * **When** I use **GROUP BY** and **SUM** on the sales details.
+        * **Then** the system must display the most sold products ordered by popularity.
+
+### 📋 NEW User Story: Database Hardening & Security Roles (Syllabus Week 15-16)
+**As a** DBA (Database Administrator),
+**I want to** implement specific roles and a backup strategy,
+**so that** the system follows the "Principle of Least Privilege" and data is never lost.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario: Assigning Limited Privileges (GRANT/REVOKE)**
+        * **Given** a new Staff member account.
+        * **When** I assign the "Staff Role" instead of "Admin".
+        * **Then** the user should be able to update stock but **cannot** delete the entire product table.
+    * **Scenario: Disaster Recovery Verification**
+        * **Given** a system failure or data corruption.
+        * **When** I execute the **Restore** command from the latest Backup.
+        * **Then** the database must return to its last stable state with 100% integrity.
 # 📂 Software Requirements Specification (SRS) - Mielecita
 
 This document defines the formal requirements for the Mielecita system, ensuring both business logic and technical constraints are met.
