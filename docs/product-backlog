@@ -1,109 +1,108 @@
 # 📊 Mielecita Digital Ecosystem - Professional Product Backlog
 
 ## 🎯 Extended Product Goal
-"Mielecita Pastry Shop's primary objective is to lead the local market through a digital transformation that simplifies the purchasing process for our customers. We aim to implement a professional online sales platform capable of managing a curated inventory of **50 high-quality products**. These products are strategically organized into 5 specialized categories: **Drinks, Desserts, Ice Cream, Jellies, and Snacks**, ensuring a consistent supply of 10 items per category with a mandatory stock of 10 units each. 
-
-The system's core is a robust, synchronized database that performs precise financial calculations (total sums) and protects business intelligence. By integrating real-time technology and strict security protocols, Mielecita guarantees a safe, fast, and transparent shopping experience, connecting our physical kitchen directly to the customer's mobile device."
+> "Mielecita Pastry Shop's primary objective is to lead the local market through a digital transformation that simplifies the purchasing process for our customers. We aim to implement a professional online sales platform capable of managing a curated inventory of **50 high-quality products**. These products are strategically organized into 5 specialized categories: **Drinks, Desserts, Ice Cream, Jellies, and Snacks**, ensuring a consistent supply of 10 items per category with a mandatory stock of 10 units each. The system's core is a robust, synchronized database that performs precise financial calculations and protects business intelligence through advanced security protocols."
 
 ---
 
 # 🍰 Product Backlog 01: Design & Discovery (Partial 1)
 **Goal:** Establish the visual identity and user journey map.
 
-## 🏛️ Epic 01: High-Fidelity Visual Prototyping
-### 📋 User Story: Interactive Menu Experience
-**As a** Customer, **I want to** explore a digital menu that looks like the real shop, **so that** I feel confident about the quality of the products I am buying.
+### 🏛️ Epic 01: High-Fidelity Visual Prototyping
+#### 📋 User Story: Interactive Menu Experience
+**As a** Customer,  
+**I want to** explore a digital menu that mirrors the physical shop's aesthetics,  
+**So that** I feel confident about the quality of the products I am purchasing.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Seamless Category Navigation**
-        * **Given** the user opens the Mielecita prototype.
-        * **When** they click on the "Ice Cream" section.
+    * **Scenario:** Seamless Category Navigation.
+        * **Given** the user accesses the Mielecita prototype.
+        * **When** they select the "Ice Cream" category.
         * **Then** the system must display 10 different flavors with high-quality images and prices.
-    * **Scenario: Budget-Driven Platform Pivot**
-        * **Given** the team identifies a $18 USD cost barrier in Figma.
-        * **When** the Scrum Master evaluates the project's financial health.
-        * **Then** the design must be migrated to Lovable to maintain a zero-cost development structure.
+    * **Scenario:** Strategic Pivot due to Budget Constraints.
+        * **Given** the design is completed in Figma.
+        * **When** the platform requires an unplanned $18 USD payment to continue.
+        * **Then** the Scrum Master must order the migration to Lovable to maintain a zero-cost structure.
 
 ---
 
 # 🍰 Product Backlog 02: Structural Implementation (Partial 2)
 **Goal:** Create a secure digital warehouse for Mielecita's data.
 
-## 🏛️ Epic 02: Secure Inventory Infrastructure
-### 📋 User Story: Protected Database Management
-**As a** Shop Manager, **I want to** store all my 50 products in a private and secure server, **so that** my competitors cannot access my inventory or pricing strategies.
+### 🏛️ Epic 02: Secure Inventory Infrastructure
+#### 📋 User Story: Protected Database Management
+**As a** Shop Manager,  
+**I want to** store the 50 products in a private and secure internal server,  
+**So that** competitors cannot access our inventory levels or pricing strategies.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Bulk Inventory Verification**
+    * **Scenario:** Bulk Inventory Verification.
         * **Given** the database is connected via Lovable's internal Supabase.
         * **When** the manager checks the "Snacks" table.
         * **Then** it must contain exactly 10 unique items, each with 10 units in stock.
-    * **Scenario: External Threat Prevention**
-        * **Given** an unauthorized attempt to connect via external tools like DataGrip.
-        * **When** the system detects a breach attempt.
-        * **Then** it must trigger a connection block to keep the project's data safe.
+    * **Scenario:** External Threat Prevention.
+        * **Given** an attempt to connect via external tools (e.g., DataGrip).
+        * **When** the system detects the connection request.
+        * **Then** it must trigger an automatic block to protect the project's data.
 
 ---
 
-# 🍰 Product Backlog 03: Advanced DBA Power & Security (Partial 3)
-**Goal:** Hardening the system with professional security, business intelligence, and real-time operations.
+# 🍰 Product Backlog 03: DBA Power & Security (Partial 3)
+**Goal:** System hardening with professional security, business intelligence, and real-time sync.
 
-## 🏛️ Epic 03: Critical Authentication & Data Shield
-### 📋 User Story: Secure Access Protocol
-**As a** Security Administrator, **I want to** enforce strict registration rules, **so that** we prevent fake accounts and protect our customers' privacy.
-
-* **Acceptance Criteria (Gherkin):**
-    * **Scenario: Strict Password Enforcement (Happy Path)**
-        * **Given** a new customer registration form.
-        * **When** the user provides a password of 12 characters and a @gmail.com email.
-        * **Then** the account is successfully created.
-    * **Scenario: Short Password Rejection (Error Handling)**
-        * **Given** a user entering a 11-character password.
-        * **When** they submit the form.
-        * **Then** the system must reject the request and display: "Error: Security standard requires 12 characters minimum."
-    * **Scenario: Domain Restriction**
-        * **Given** a user with a @yahoo.com or @outlook.com email.
-        * **When** they attempt to register.
-        * **Then** the system blocks the access to maintain Gmail-only corporate standards.
-    * **Scenario: Duplicate Account Prevention**
-        * **Given** an email address already registered in the system.
-        * **When** a new person tries to use it.
-        * **Then** the system shows: "This email is already in use by another customer."
-
-## 🏛️ Epic 04: Omnichannel Sync & Smart Access
-### 📋 User Story: Real-Time Inventory Coordination
-**As a** Staff Member, **I want** any change I make in the back office to be visible to customers immediately, **so that** we don't have to apologize for selling a product that is already sold out.
+### 🏛️ Epic 03: Critical Authentication & Data Shield
+#### 📋 User Story: Secure Access Protocol
+**As a** Security Administrator,  
+**I want to** enforce strict registration rules,  
+**So that** we prevent fake accounts and protect our customers' privacy.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Staff Access via Token Link**
-        * **Given** the administrator needs to update prices quickly.
-        * **When** they use their secure time-sensitive token link.
-        * **Then** they access the dashboard directly without a password prompt.
-    * **Scenario: Instant Price Sync via QR**
-        * **Given** a customer scanning the QR code in the physical store.
-        * **When** the staff changes the "Drink" category prices.
-        * **Then** the customer's phone must update the menu in less than 2 seconds.
+    * **Scenario:** Strict Password Enforcement.
+        * **Given** a registration form. **When** the user provides a 12-character password and a @gmail.com email. **Then** the account is successfully created.
+    * **Scenario:** Short Password Rejection.
+        * **Given** a user entering an 11-character password. **When** they submit. **Then** the system displays: "Error: Security standard requires 12 characters minimum."
 
-## 🏛️ Epic 05: Business Intelligence (The DBA's Power)
-### 📋 User Story: Advanced Financial Analytics
-**As a** Business Owner, **I want to** generate intelligence reports using Joins and Aggregates, **so that** I can know which of my 5 categories is the most profitable.
+### 🏛️ Epic 04: Omnichannel Sync & Smart Access
+#### 📋 User Story: Real-Time Inventory Coordination
+**As a** Staff Member,  
+**I want** any change made in the back-office to be visible to customers immediately,  
+**So that** we avoid selling out-of-stock items.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Category Revenue Report**
-        * **Given** the sales database with JOINs between Categories and Products.
-        * **When** I request a report of the total sales sum for "Desserts".
-        * **Then** the system must calculate the total revenue using SQL SUM functions.
-    * **Scenario: Low Stock Alerts**
-        * **Given** the inventory of the 50 products.
-        * **When** a product's stock reaches 0.
-        * **Then** a SQL Trigger must block further sales and mark the item as "OUT OF STOCK" on the customer's view.
+    * **Scenario:** Instant Price Sync via QR.
+        * **Given** a customer scanning the store's QR code. **When** the staff updates "Drinks" prices. **Then** the customer's view must update in less than 2 seconds.
 
-## 🏛️ Epic 06: Reliability & Disaster Recovery
-### 📋 User Story: Data Integrity Guarantee
-**As a** DBA, **I want to** have a documented backup and recovery strategy, **so that** the shop can recover from any technical failure in minutes.
+### 🏛️ Epic 05: Business Intelligence (The DBA's Power)
+#### 📋 User Story: Advanced Financial Analytics
+**As a** Business Owner,  
+**I want to** generate intelligence reports using Joins and Aggregates,  
+**So that** I can identify the most profitable product category.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Full System Restoration**
-        * **Given** a database failure event.
-        * **When** the DBA initiates the SQL restore process.
-        * **Then** all categories (Drinks, Desserts, Ice Cream, Jellies, Snacks) and their 50 products must be restored with 100% accuracy.
+    * **Scenario:** Category Revenue Report.
+        * **Given** the sales database with active JOINs. **When** I request the total revenue for "Desserts". **Then** the system calculates the sum using SQL SUM functions.
+
+### 🏛️ Epic 06: Reliability & Disaster Recovery
+#### 📋 User Story: Data Integrity Guarantee
+**As a** DBA,  
+**I want to** have a documented backup and recovery strategy,  
+**So that** the shop can recover from technical failures in minutes.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario:** Full System Restoration.
+        * **Given** a database failure. **When** the DBA initiates the SQL restore process. **Then** all 5 categories and 50 products must be restored with 100% accuracy.
+
+---
+
+# 📂 Software Requirements Specification (SRS) - Mielecita
+
+## 1. Functional Requirements (FR)
+1. **FR-01: Domain Validation:** The system shall restrict registrations to `@gmail.com` domains only.
+2. **FR-02: Stock Control:** The database shall implement SQL Triggers to block sales when quantity reaches zero.
+3. **FR-03: Smart Access:** Administrative access via secure, time-sensitive token links for staff.
+4. **FR-04: Content Filter:** Block inappropriate usernames using a predefined blacklist.
+
+## 2. Non-Functional Requirements (NFR)
+1. **NFR-01: Data Security:** Mandatory 12-character minimum password complexity.
+2. **NFR-02: User Feedback:** Immediate UI feedback for authentication errors (e.g., "Incorrect password").
+3. **NFR-03: Performance:** Real-time data sync with latency of less than 2 seconds.
