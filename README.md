@@ -80,111 +80,107 @@ cd mielecita-pastry-system
 
 
 ## 📈 Product Backlog Evolution
-# 🍰 Product Backlog 01: Design & Prototyping
-**Product Goal:** Establish the visual and navigational foundation of the Mielecita system to ensure functionality and user flow before technical implementation.
+# 🍰 Product Backlog 01: Design & Discovery (Partial 1)
+**Goal:** Establish the visual identity and user journey map.
 
-## 🏛️ Epic: E01 - Visual Identity & User Experience
-**Goal:** Define the gourmet brand aesthetics and the end-to-end customer purchase journey.
-
-### 📋 User Story: Interactive UI Design
-**As a** UI/UX Designer,
-**I want to** create high-fidelity prototypes in Figma,
-**so that** the team can validate the navigation flow without development costs.
+### 🏛️ Epic 01: High-Fidelity Visual Prototyping
+#### 📋 User Story: Interactive Menu Experience
+**As a** Customer,  
+**I want to** explore a digital menu that mirrors the physical shop's aesthetics,  
+**So that** I feel confident about the quality of the products I am purchasing.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Catalog Navigation (Happy Path)**
-        * **Given** the user accesses the Mielecita Figma prototype.
-        * **When** they select a pastry category.
-        * **Then** the system must display the corresponding products with price and stock.
-    * **Scenario: Strategic Pivot due to Budget Constraints**
+    * **Scenario:** Seamless Category Navigation.
+        * **Given** the user accesses the Mielecita prototype.
+        * **When** they select the "Ice Cream" category.
+        * **Then** the system must display 10 different flavors with high-quality images and prices.
+    * **Scenario:** Strategic Pivot due to Budget Constraints.
         * **Given** the design is completed in Figma.
-        * **When** the platform requests a $18 USD payment to continue.
-        * **Then** the Scrum Master must order the migration to Lovable to avoid unplanned costs.
-
-# 🍰 Product Backlog 02: Infrastructure & Data
-**Product Goal:** Build a secure and functional database environment that prevents external vulnerabilities detected in previous stages.
-
-## 🏛️ Epic: E02 - Data Architecture & Secure Connectivity
-**Goal:** Implement the relational backend within the Lovable ecosystem.
-
-### 📋 User Story: Inventory Management in Database
-**As a** SQL Developer,
-**I want to** connect the tables to the internal Lovable Supabase,
-**so that** information is protected against external project theft attempts.
-
-* **Acceptance Criteria (Gherkin):**
-    * **Scenario: Bulk Loading of 100 Products (Happy Path)**
-        * **Given** the SQL seed script is ready.
-        * **When** it is executed in the Supabase editor.
-        * **Then** the tables must display the 100 records with their complete attributes.
-    * **Scenario: Blocking External Connection for Security**
-        * **Given** an attempt to connect via DataGrip or external tools.
-        * **When** the system detects the connection request.
-        * **Then** it must deny access to protect the code from theft, allowing only the use of native Lovable Supabase.
-
-# 🍰 Product Backlog 03: Business Rules & Final Enhancements
-**Product Goal:** Shield system security and optimize staff and customer access through smart technologies.
-
-### 🏛️ Epic: E03 - Critical Security, DBA Power & Automation
-**Goal:** Implement strict validations, real-time synchronization, and data intelligence through advanced DBA practices.
-
-### 📋 User Story: Credential Security & Access (Existing)
-*(Aquí mantienes los escenarios de Gmail, Password de 12 caracteres y Duplicidad que ya tenías)*
-
-### 📋 User Story: Real-Time Sync & QR Integration (Existing)
-*(Aquí mantienes los escenarios de Personal Link y QR functional que ya tenías)*
+        * **When** the platform requires an unplanned $18 USD payment to continue.
+        * **Then** the Scrum Master must order the migration to Lovable to maintain a zero-cost structure.
 
 ---
 
-### 📋 NEW User Story: Data Intelligence & Reporting (Syllabus Week 13-14)
-**As a** Business Owner,
-**I want to** generate advanced reports using Joins and Aggregates,
-**so that** I can identify top-selling products and total revenue.
+# 🍰 Product Backlog 02: Structural Implementation (Partial 2)
+**Goal:** Create a secure digital warehouse for Mielecita's data.
+
+### 🏛️ Epic 02: Secure Inventory Infrastructure
+#### 📋 User Story: Protected Database Management
+**As a** Shop Manager,  
+**I want to** store the 50 products in a private and secure internal server,  
+**So that** competitors cannot access our inventory levels or pricing strategies.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Generating Sales Report (Happy Path)**
-        * **Given** the database contains sales and product tables.
-        * **When** I execute a query using **INNER JOIN** between sales and products.
-        * **Then** the system must return a list showing product names, quantities, and total income per sale.
-    * **Scenario: Identifying Best Sellers**
-        * **Given** the sales history.
-        * **When** I use **GROUP BY** and **SUM** on the sales details.
-        * **Then** the system must display the most sold products ordered by popularity.
+    * **Scenario:** Bulk Inventory Verification.
+        * **Given** the database is connected via Lovable's internal Supabase.
+        * **When** the manager checks the "Snacks" table.
+        * **Then** it must contain exactly 10 unique items, each with 10 units in stock.
+    * **Scenario:** External Threat Prevention.
+        * **Given** an attempt to connect via external tools (e.g., DataGrip).
+        * **When** the system detects the connection request.
+        * **Then** it must trigger an automatic block to protect the project's data.
 
-### 📋 NEW User Story: Database Hardening & Security Roles (Syllabus Week 15-16)
-**As a** DBA (Database Administrator),
-**I want to** implement specific roles and a backup strategy,
-**so that** the system follows the "Principle of Least Privilege" and data is never lost.
+---
+
+# 🍰 Product Backlog 03: DBA Power & Security (Partial 3)
+**Goal:** System hardening with professional security, business intelligence, and real-time sync.
+
+### 🏛️ Epic 03: Critical Authentication & Data Shield
+#### 📋 User Story: Secure Access Protocol
+**As a** Security Administrator,  
+**I want to** enforce strict registration rules,  
+**So that** we prevent fake accounts and protect our customers' privacy.
 
 * **Acceptance Criteria (Gherkin):**
-    * **Scenario: Assigning Limited Privileges (GRANT/REVOKE)**
-        * **Given** a new Staff member account.
-        * **When** I assign the "Staff Role" instead of "Admin".
-        * **Then** the user should be able to update stock but **cannot** delete the entire product table.
-    * **Scenario: Disaster Recovery Verification**
-        * **Given** a system failure or data corruption.
-        * **When** I execute the **Restore** command from the latest Backup.
-        * **Then** the database must return to its last stable state with 100% integrity.
+    * **Scenario:** Strict Password Enforcement.
+        * **Given** a registration form. **When** the user provides a 12-character password and a @gmail.com email. **Then** the account is successfully created.
+    * **Scenario:** Short Password Rejection.
+        * **Given** a user entering an 11-character password. **When** they submit. **Then** the system displays: "Error: Security standard requires 12 characters minimum."
+
+### 🏛️ Epic 04: Omnichannel Sync & Smart Access
+#### 📋 User Story: Real-Time Inventory Coordination
+**As a** Staff Member,  
+**I want** any change made in the back-office to be visible to customers immediately,  
+**So that** we avoid selling out-of-stock items.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario:** Instant Price Sync via QR.
+        * **Given** a customer scanning the store's QR code. **When** the staff updates "Drinks" prices. **Then** the customer's view must update in less than 2 seconds.
+
+### 🏛️ Epic 05: Business Intelligence (The DBA's Power)
+#### 📋 User Story: Advanced Financial Analytics
+**As a** Business Owner,  
+**I want to** generate intelligence reports using Joins and Aggregates,  
+**So that** I can identify the most profitable product category.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario:** Category Revenue Report.
+        * **Given** the sales database with active JOINs. **When** I request the total revenue for "Desserts". **Then** the system calculates the sum using SQL SUM functions.
+
+### 🏛️ Epic 06: Reliability & Disaster Recovery
+#### 📋 User Story: Data Integrity Guarantee
+**As a** DBA,  
+**I want to** have a documented backup and recovery strategy,  
+**So that** the shop can recover from technical failures in minutes.
+
+* **Acceptance Criteria (Gherkin):**
+    * **Scenario:** Full System Restoration.
+        * **Given** a database failure. **When** the DBA initiates the SQL restore process. **Then** all 5 categories and 50 products must be restored with 100% accuracy.
+
+---
+
 # 📂 Software Requirements Specification (SRS) - Mielecita
 
-This document defines the formal requirements for the Mielecita system, ensuring both business logic and technical constraints are met.
-
 ## 1. Functional Requirements (FR)
-These requirements define the specific behaviors and functions the system must provide.
-
-1. **FR-01: Domain Validation:** The system shall restrict new account registrations to `@gmail.com` domains only.
-2. **FR-02: Stock Control:** The database shall implement SQL Triggers to block sale transactions when the product quantity reaches zero.
-3. **FR-03: Smart Access:** The system shall provide administrative access via secure, time-sensitive token links instead of traditional login for staff.
-4. **FR-04: Content Filter:** The registration module shall block inappropriate or obscene usernames using a predefined blacklist.
+1. **FR-01: Domain Validation:** The system shall restrict registrations to `@gmail.com` domains only.
+2. **FR-02: Stock Control:** The database shall implement SQL Triggers to block sales when quantity reaches zero.
+3. **FR-03: Smart Access:** Administrative access via secure, time-sensitive token links for staff.
+4. **FR-04: Content Filter:** Block inappropriate usernames using a predefined blacklist.
 
 ## 2. Non-Functional Requirements (NFR)
-These requirements specify the quality attributes and constraints of the system.
-
-1. **NFR-01: Data Security:** Mandatory minimum password complexity of at least 12 characters for all user roles.
-2. **NFR-02: User Feedback:** The UI shall provide immediate, descriptive feedback for authentication errors (e.g., "Incorrect password").
-3. **NFR-03: Availability & Performance:** The system shall ensure real-time data synchronization between the Staff Portal and the Customer View with a latency of less than 2 seconds.
-
-
+1. **NFR-01: Data Security:** Mandatory 12-character minimum password complexity.
+2. **NFR-02: User Feedback:** Immediate UI feedback for authentication errors (e.g., "Incorrect password").
+3. **NFR-03: Performance:** Real-time data sync with latency of less than 2 seconds.
 
 ## 📂 Repository Structure
 
