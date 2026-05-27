@@ -26,8 +26,8 @@ With a real-world catalog of **100 products**, the project integrates a robust c
 
 ---
 
-## 🎯 Extended Product Goal
-> "Mielecita Pastry Shop's primary objective is to lead the local market through a digital transformation that simplifies the purchasing process for our customers. We aim to implement a professional online sales platform capable of managing a curated inventory of **50 high-quality products**. These products are strategically organized into 5 specialized categories: **Drinks, Desserts, Ice Cream, Jellies, and Snacks**, ensuring a consistent supply of 10 items per category with a mandatory stock of 10 units each. The system's core is a robust, synchronized database that performs precise financial calculations and protects business intelligence through advanced security protocols."
+## 🎯 Business Vision & Goal
+"Our goal is to consolidate Mielecita as the leading local pastry shop through a premium digital platform. We will offer a curated catalog of **50 gourmet products** (10 per category: Drinks, Desserts, Ice Cream, Jellies, and Snacks). This system is designed to provide our customers with a fast, safe, and transparent shopping experience, while ensuring the business has absolute control over inventory, sales, and data protection."
 
 ---
 Application link
