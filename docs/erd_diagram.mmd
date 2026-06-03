@@ -31,14 +31,18 @@ erDiagram
     CUSTOMERS ||--o{ PRODUCT_REVIEWS : "writes"
     PROMOTIONS ||--o{ SALES : "applied_to"
 
+    %% --- THIRD PARTIAL SECURITY & AUDIT ADDITIONS ---
+    USERS ||--o{ STAFF_ACTIVITY_LOG : "performs_actions"
+    USERS ||--o{ STAFF_ACCESS_ATTEMPTS : "generates_attempts"
+
     %% --- DETAILED ENTITIES ---
 
     USERS {
         int user_id PK
         string username
-        string email "Must be @gmail.com"
-        string password "Min 12 chars"
-        string role "Admin, Employee, Client"
+        string email "Must be @gmail.com / staff handled by personal@mielecita.local"
+        string password "Min 12 chars + HIBP filter check"
+        string role "Admin, Staff, Client"
         boolean is_active
     }
 
@@ -71,7 +75,7 @@ erDiagram
         int category_id FK
         string name
         string description
-        decimal price
+        decimal price "Monitored by Security Definer Trigger"
         string image_url
         string servings "e.g. 10-15 people"
     }
@@ -94,7 +98,7 @@ erDiagram
         int inventory_id PK
         int product_id FK
         int branch_id FK
-        int stock
+        int stock "Checked by Stock Triggers"
         int min_stock
     }
 
@@ -149,4 +153,25 @@ erDiagram
         decimal discount_percentage
         date start_date
         date end_date
+    }
+
+    %% --- NEW THIRD PARTIAL SECURITY ENTITIES ---
+
+    STAFF_ACTIVITY_LOG {
+        int log_id PK
+        int user_id FK "References staff operator"
+        string operation_type "INSERT, UPDATE, DELETE"
+        string table_name "e.g. productos, promociones"
+        string description "Details previous and new dataset states"
+        datetime timestamp
+    }
+
+    STAFF_ACCESS_ATTEMPTS {
+        int attempt_id PK
+        int user_id FK "Can be NULL if anonymous vector"
+        string attempted_email
+        string ip_address
+        string origin_url "CORS validated domain"
+        string status "SUCCESS, REJECTED_RLS, INVALID_CREDENTIALS"
+        datetime timestamp
     }
