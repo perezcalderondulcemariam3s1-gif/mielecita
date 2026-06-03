@@ -1,74 +1,43 @@
-# 🍰 Project Mielecita: Digital Transformation & E-commerce Strategy
-
-> **Status:** Deployment Ready  
-> **Target:** [Mielecita Sweet Cart Live](https://mielecita-sweet-cart.lovable.app/)  
-> **Reference Model:** [Olyess Pastelerías](https://olyesspastelerias.com/)
-
 ---
 
-## 🎯 Executive Summary & Objectives
-The **Mielecita** project was conceived to revolutionize a traditional artisanal bakery by implementing a high-performance E-commerce platform. Inspired by the professional standards of **Olyess**, our mission was to bridge the gap between "brick-and-mortar" sales and a "cloud-first" retail experience.
+## 📊 Evolutionary User Stories Mapping (Separated by Academic Partials)
 
-**Key Goals:**
-* **Scalability:** Manage a complex inventory of **100+ gourmet products**.
-* **Security:** Implement industrial-grade authentication and data sanitization.
-* **UX Excellence:** Provide a seamless, responsive interface using **Lovable** and **Tailwind CSS**.
-* **Data Integrity:** Ensure 100% accuracy in stock levels and financial calculations via **PostgreSQL**.
+### 📈 FIRST PARTIAL: Visual Identity, Blueprints & Relational Architecture (Figma & ERD)
+> **Focus:** Designing the high-fidelity prototypes in Figma, drafting strict business rules, and building the normalized Entity-Relationship Diagram (ERD) for the 100-product catalog.
 
----
-
-## 🛠 Advanced Technical Stack
-* **Prototyping:** Figma (High-fidelity UI/UX design).
-* **Frontend Architecture:** React.js + Vite (Powered by Lovable.app).
-* **Backend & Infrastructure:** Supabase (Cloud-native PostgreSQL).
-* **Server-Side Logic:** PL/pgSQL (Triggers, Functions, and Views).
-* **Security Protocols:** Row Level Security (RLS) & Regex-based Constraints.
-
----
-
-## 📈 Evolutionary Product Backlog (Sprints 1-3)
-
-| ID | Feature Category | User Story Summary | Technical Goal | Status |
+| ID | User Role | As a... / I want to... / So that... | Business & Database Impact | Technical Acceptance Criteria (Gherkin Syntax) |
 | :--- | :--- | :--- | :--- | :--- |
-| **US01** | **Identity** | As a visitor, I want a premium landing page to identify the Mielecita brand. | Deploy responsive banners and high-res product cards. | ✅ |
-| **US02** | **Security** | As a user, I want a secure login to manage my "Sweet Account." | Implement `@gmail.com` filter and **12-character** password salt/hash. | ✅ |
-| **US03** | **Inventory** | As a buyer, I want to browse a catalog of 100+ items with real prices. | Bulk-load via `02_seed.sql` and synchronize with Supabase. | ✅ |
-| **US04** | **UX/UI** | As a buyer, I want to filter by 5 categories (Cakes, Drinks, etc.). | Dynamic SQL queries using `WHERE category_id` filters. | ✅ |
-| **US05** | **Integrity** | As an owner, I want to prevent sales of out-of-stock products. | Real-time **SQL Triggers** to block `INSERT` on zero stock. | ✅ |
-| **US06** | **Reporting** | As an admin, I want to see financial totals without errors. | Create **Database Views** for automated price/tax calculation. | ✅ |
+| **US-MLS-01** | Visitor | **As a** customer,<br>**I want to** view a premium landing page with high-res asset cards,<br>**So that** I can identify the Mielecita artisanal brand. | Drives brand alignment inspired by Olyess standards. | **Given** the customer opens the Figma prototype URL.<br>**When** the landing hero section renders.<br>**Then** it must display responsive banners and active category entry nodes. |
+| **US-MLS-02** | Data Architect | **As a** Database Administrator,<br>**I want to** map out a normalized Entity-Relationship Diagram (ERD),<br>**So that** the 100+ items avoid structural redundancy. | Establishes solid 1:N relational integrity parameters. | **Given** the blueprint database schema details.<br>**When** linking items to categories.<br>**Then** it must enforce strict foreign keys between `productos` and `categories` tables. |
+| **US-MLS-03** | Scrum Master | **As a** Scrum Master,<br>**I want to** document the explicit validation bounds for the inventory,<br>**So that** system data parsing behaves predictably. | Prevents architectural garbage data entry at the baseline layer. | **Given** the business rules specifications layout.<br>**When** auditing product attributes.<br>**Then** base prices must be verified as strictly positive numeric constraints ($> 0$). |
+| **US-MLS-04** | Buyer | **As a** user looking for a specific dessert,<br>**I want** a sidebar navigation to filter by 5 categories,<br>**So that** I can locate my favorite pastry instantly. | Structures the workspace allocation (25% filters, 75% results grid). | **Given** the low-fidelity layout mapping views.<br>**When** switching between the 5 pastry divisions.<br>**Then** the layout structure must switch focus states within 2 navigation steps. |
+| **US-MLS-05** | SQL Developer | **As a** SQL Developer,<br>**I want to** draft a data seeding strategy format for the 100 products,<br>**So that** the initial cloud data bulk insert is structured. | Prepares raw data normalization before remote deployment steps. | **Given** a raw spreadsheet listing the initial 100 gourmet items.<br>**When** mapped into the data insertion translation matrices.<br>**Then** attributes must match database fields without dangling arrays. |
+| **US-MLS-06** | SQL Tester | **As a** SQL Tester,<br>**I want to** evaluate mock constraint models on the design schema,<br>**So that** potential data type failures are caught early. | Guarantees schema resiliency before live cloud provisioning. | **Given** the initial database structural blueprint.<br>**When** execution testing attempts to push empty strings into non-nullable attributes.<br>**Then** the engine prototype must drop the transaction. |
 
 ---
 
-## 📝 Comprehensive User Stories (In-Depth Analysis)
+### 🏃‍♂️ SECOND PARTIAL: Lovable Migration, Cloud Seeding & Disaster Recovery
+> **Focus:** Provisioning the live Supabase cloud environment, handling full codebase salvage and reconstruction after the automated workspace override issue, and binding WebSocket realtime channels.
 
-### 1. The Secure Authentication Experience (US02)
-* **User Statement:** "As a frequent customer, I want to register using a robust password and a verified Gmail account."
-* **Business Requirement:** Ensure all users follow modern security standards to protect the customer database.
-* **Acceptance Criteria:**
-    * Passwords must be at least **12 characters** long.
-    * Email inputs must match the `@gmail.com` domain regex.
-* **Technical Outcome:** Implemented `CHECK` constraints in the `users` table to enforce data sanitization before the information reaches the backend.
-
-### 2. The Dynamic Catalog & Sidebar Navigation (US04)
-* **User Statement:** "As a user looking for a specific dessert, I want a categorized sidebar to find my favorite cake instantly."
-* **Business Requirement:** Mimic the professional navigation of **Olyess** where 25% of the UI handles filters and 75% displays results.
-* **Acceptance Criteria:**
-    * Sidebar buttons for: Pastries, Drinks, Snacks, Gelatins, and Ice Cream.
-    * Instant grid updates without page reloads (Virtual DOM).
-* **Technical Outcome:** Successfully mapped SQL `category_id` to React state, allowing real-time catalog updates as the user interacts with the sidebar.
-
-### 3. Inventory Protection & Business Rules (US05)
-* **User Statement:** "As a customer, I want to be certain that if I buy a 'Pastel Carlos V', it is actually in stock."
-* **Business Requirement:** Zero-tolerance policy for stock discrepancies.
-* **Acceptance Criteria:**
-    * If `inventory.stock` reaches 0, the "Buy" button is disabled.
-    * Server-side validation must block transactions even if the UI is bypassed.
-* **Technical Outcome:** Developed a **PostgreSQL Trigger** that monitors the `sales_details` table, ensuring the "Sweet Cart" never processes an invalid order.
+| ID | User Role | As a... / I want to... / So that... | Business & Database Impact | Technical Acceptance Criteria (Gherkin Syntax) |
+| :--- | :--- | :--- | :--- | :--- |
+| **US-MLS-07** | Designer | **As an** Analyst & Designer,<br>**I want to** provision the application structures inside Lovable,<br>**So that** frontend component rendering matches Figma assets. | Establishes production frontend components and grid views. | **Given** the compiled interactive workspace inside Lovable.<br>**When** loading the inventory screen viewport.<br>**Then** it must render a responsive, dynamic product display card grid. |
+| **US-MLS-08** | Cloud DBA | **As a** Database Administrator,<br>**I want to** initialize tables and run `02_seed.sql` on Supabase,<br>**So that** live API endpoints consume real catalog payloads. | Establishes the cloud-native PostgreSQL data baseline repository. | **Given** an active, empty cloud instance hosted on Supabase.<br>**When** executing the remote initialization SQL seed script.<br>**Then** the catalog table must populate with exactly 100 items across 5 categories. |
+| **US-MLS-09** | Scrum Master | **As a** Scrum Master,<br>**I want to** coordinate recovery strategies following the Lovable codebase loss,<br>**So that** all system architecture parameters are salvaged. | Implements emergency recovery management to solve code override issues. | **Given** a broken development environment tracking sudden script loss.<br>**When** fallback snapshots are re-bound to active table schemas.<br>**Then** the workspace must restore full runtime execution states. |
+| **US-MLS-10** | Query Master | **As a** The Query Master,<br>**I want to** bind live WebSocket listeners to active inventory fields,<br>**So that** menu data modifications synchronize instantly. | Eliminates manual window reloads to see stock shifts (Omni-channel sync). | **Given** an open client browser instance display grid.<br>**When** a product field updates at the central database tier.<br>**Then** data values must refresh visually on screen in under 2 seconds. |
+| **US-MLS-11** | SQL Developer | **As a** SQL Developer,<br>**I want to** implement initial access controls restricted to `@gmail.com`,<br>**So that** core administrative interfaces filter out outside vectors. | Restricts platform registration entries to authentic corporate structures. | **Given** an open login input interface block.<br>**When** a user attempts to map an account utilizing an invalid `@outlook.com` handle.<br>**Then** the system must abort registration. |
+| **US-MLS-12** | SQL Tester | **As a** SQL Tester,<br>**I want to** run complete connectivity suites against the recovered tables,<br>**So that** structural data corruption is completely ruled out. | Validates deployment quality metrics following environment restoration. | **Given** the recovered frontend connected back to the cloud base.<br>**When** automated stress transactions run concurrently against endpoints.<br>**Then** logs must register zero loose parameters. |
 
 ---
 
-## 🚀 Final Project Impact
-By combining the visual elegance of **Figma**, the agility of **Lovable**, and the industrial power of **PostgreSQL**, **Mielecita** stands as a "Perfect" E-commerce prototype. It handles complex data relationships (1:N), enforces strict security, and provides a user experience that rivals professional Mexican pastry websites like **Olyess**.
+### 🛡️ THIRD PARTIAL: Security Hardening, SQL Analytics & Compliance (Current Status)
+> **Focus:** Hardening backend assets with Row Level Security (RLS), injecting server-side Edge Functions (`staff-bootstrap`), activating HIBP filters, and deploying advanced PL/pgSQL views for business intelligence.
 
----
-*Documented by the Scrum Master - Mielecita Team 2026*
+| ID | User Role | As a... / I want to... / So that... | Business & Database Impact | Technical Acceptance Criteria (Gherkin Syntax) |
+| :--- | :--- | :--- | :--- | :--- |
+| **US-MLS-13** | Admin User | **As an** Administrator,<br>**I want to** process staff access via unique tokens and a server-side profile,<br>**So that** I streamline daily logins via secure links. | Implements token-based staff authorization without exposed passwords. | **Given** the `staff-bootstrap` Edge Function is deployed server-side.<br>**When** staff triggers an access token link from an allowed domain.<br>**Then** the server must provision authorization under `personal@mielecita.local`. |
+| **US-MLS-14** | Security Lead | **As a** Security Lead,<br>**I want to** enforce strict 12-character rules and HIBP checking filters,<br>**So that** compromised or weak passwords are blocked. | Ensures protection against dictionary and brute-force access schemes. | **Given** that the credential validation interceptor engine is active.<br>**When** an account tries to register using a leaked string like `password12345`.<br>**Then** the auth process must abort and display a security warning. |
+| **US-MLS-15** | Systems Engineer | **As a** Network Security Engineer,<br>**I want to** restrict Allowed Redirect URLs and Allowed Origins,<br>**So that** authorization payloads are only handled by official domains. | Blocks Cross-Origin token highjacking attempts entirely. | **Given** the auth server environment variables are locked.<br>**When** a malicious external domain initiates an API login call request.<br>**Then** the network server must drop the handshake with a CORS error. |
+| **US-MLS-16** | SQL Developer | **As a** SQL Developer,<br>**I want to** activate strict Row Level Security (RLS) on all system tables,<br>**So that** data manipulation requires explicit role confirmation. | Isolates backend assets (`pedidos`, `productos`, `promociones`) from public scripts. | **Given** that RLS is fully enabled across production cloud tables.<br>**When** an unauthenticated public actor calls a `DELETE` command via console.<br>**Then** the cloud base must reject the transaction with a 403 error. |
+| **US-MLS-17** | Business Owner | **As a** Business Owner,<br>**I want to** view complex financial totals aggregated automatically by category,<br>**So that** I can identify the shop's most profitable sections. | Computes accurate business intelligence statistics from live sales details. | **Given** the database logs real transaction data rows in `pedidos`.<br>**When** triggering the advanced relational SQL analytics query statement.<br>**Then** it must compute an `INNER JOIN`, `SUM` values, and output totals by category. |
+| **US-MLS-18** | SQL Tester | **As a** SQL Tester,<br>**I want to** verify database triggers binding to `staff_activity_log`,<br>**So that** administrative actions create an unalterable audit trail. | Tracks staff mutations dynamically using automated `SECURITY DEFINER` procedures. | **Given** the tracking trigger is active on the core product tables.<br>**When** an authorized staff user changes any price index.<br>**Then** the engine must write a log tracking timestamps and row differences. |
