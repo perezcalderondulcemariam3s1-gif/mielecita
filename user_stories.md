@@ -1,5 +1,3 @@
----
-
 ## 📊 Evolutionary User Stories Mapping (Separated by Academic Partials)
 
 ### 📈 FIRST PARTIAL: Visual Identity, Blueprints & Relational Architecture (Figma & ERD)
