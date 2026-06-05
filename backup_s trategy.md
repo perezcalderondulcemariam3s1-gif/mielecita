@@ -19,3 +19,7 @@ Execute the logical backup using the native database dump utilities to create an
 ```bash
 # Execute native utilities to export relational schemas, constraints, and data rows
 mysqldump -u root -p --opt --routines --triggers mielecita_bakery_db > backup_mielecita_$(date +%F).sql
+
+```bash
+# Execute native utilities to export relational schemas, constraints, and data rows
+mysqldump -u root -p --opt --routines --triggers mielecita_bakery_db > backup_mielecita_$(date +%F).sql
