@@ -64,7 +64,7 @@ https://mielecita-sweet-cart.lovable.app/
 ## 📺 Demostración del Sistema (Video)
 El video demostrativo de conectividad con la base de datos se encuentra alojado en el repositorio:
 
-📁 [Ver Video de Demostración (`assets/demo_sistema.mp4`)](./assets/demo_sistema.mp4)
+https://youtu.be/5FbIoZOcv_0?si=F8c1GJyy2nFJHwVB
 
 ## ⚡ Getting Started
 
