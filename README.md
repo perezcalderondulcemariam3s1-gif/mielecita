@@ -60,12 +60,14 @@ https://mielecita-sweet-cart.lovable.app/
 * [Running Tests](#-running-tests)
 * [License](#-license)
 * [User stories & aception criterio](#-User-Stories-&-Acceptance-Criteria-(Gherkin))
+* [Exposicion](#-material-de-exposicion)
 
-## 📺 Demostración del Sistema (Video)
-El video demostrativo de conectividad con la base de datos se encuentra alojado en el repositorio:
+## 📊 Material de Exposición
 
-https://youtu.be/5FbIoZOcv_0?si=F8c1GJyy2nFJHwVB
+Para la defensa de este proyecto, el equipo ha preparado una presentación con enfoque corporativo que detalla la arquitectura, las reglas de negocio y la seguridad de **Mielecita**:
 
+* 📑 **Presentación del Proyecto:** [Abrir Diapositivas en Canva]([AQUÍ_PEGAS_EL_LINK_DE_CANVA](https://canva.link/zbuujfczbbtv88e))
+* 📺 **Demostración en Video:** [Ver Video de Conectividad]([[AQUÍ_PEGAS_EL_LINK_DE_TU_VIDEO]](https://youtu.be/5FbIoZOcv_0?si=F8c1GJyy2nFJHwVB))
 ## ⚡ Getting Started
 
 ### Prerequisites
