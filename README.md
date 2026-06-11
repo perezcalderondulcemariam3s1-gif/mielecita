@@ -60,6 +60,12 @@ https://mielecita-sweet-cart.lovable.app/
 * [Running Tests](#-running-tests)
 * [License](#-license)
 * [User stories & aception criterio](#-User-Stories-&-Acceptance-Criteria-(Gherkin))
+
+## 📺 Demostración del Sistema (Video)
+El video demostrativo de conectividad con la base de datos se encuentra alojado en el repositorio:
+
+📁 [Ver Video de Demostración (`assets/demo_sistema.mp4`)](./assets/demo_sistema.mp4)
+
 ## ⚡ Getting Started
 
 ### Prerequisites
